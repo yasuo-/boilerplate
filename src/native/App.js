@@ -1,70 +1,15 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+/* @flow */
 
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View, Button } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 import { TabNavigator, TabBarBottom } from "react-navigation";
 
-const instructions = Platform.select({
-  ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
-  android:
-    "Double tap R on your keyboard to reload,\n" +
-    "Shake or press menu button for dev menu"
-});
-
-type Props = {};
-class HomeScreen extends Component<Props> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-        <Button
-          title="Go to Settings"
-          onPress={() => this.props.navigation.navigate("Settings")}
-        />
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  },
-  instructions: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5
-  }
-});
-
-class DetailsScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>Details Screen</Text>
-        <Button
-          title="Go to Home"
-          onPress={() => this.props.navigation.navigate("Home")}
-        />
-      </View>
-    );
-  }
-}
+import HomeScreen from "./screen/HomeScreen";
+import SavedScreen from "./screen/SavedScreen";
+import PlansScreen from "./screen/PlansScreen";
+import InboxScreen from "./screen/InboxScreen";
+import ProfileScreen from "./screen/ProfileScreen";
+import SettingsScreen from "./screen/SettingsScreen";
 
 /*
 const RootStack = StackNavigator(
@@ -92,7 +37,10 @@ export default class App extends Component {
 export default TabNavigator(
   {
     Home: { screen: HomeScreen },
-    Settings: { screen: DetailsScreen }
+    Saved: { screen: SavedScreen },
+    Plans: { screen: PlansScreen },
+    Inbox: { screen: InboxScreen },
+    Profile: { screen: ProfileScreen }
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -101,7 +49,13 @@ export default TabNavigator(
         let iconName;
         if (routeName === "Home") {
           iconName = `ios-information-circle${focused ? "" : "-outline"}`;
-        } else if (routeName === "Settings") {
+        } else if (routeName === "Saved") {
+          iconName = `ios-options${focused ? "" : "-outline"}`;
+        } else if (routeName === "Plans") {
+          iconName = `ios-options${focused ? "" : "-outline"}`;
+        } else if (routeName === "Inbox") {
+          iconName = `ios-options${focused ? "" : "-outline"}`;
+        } else if (routeName === "Profile") {
           iconName = `ios-options${focused ? "" : "-outline"}`;
         }
 
