@@ -1,8 +1,11 @@
 /* @flow */
 
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, Button } from "react-native";
-import { TabNavigator, TabBarBottom } from "react-navigation";
+import { StyleProvider } from "native-base";
+import { StackNavigator, TabNavigator, TabBarBottom } from "react-navigation";
+
+import getTheme from "../../native-base-theme/components";
+import common from "../../native-base-theme/variables/commonColor";
 
 import HomeScreen from "./screen/HomeScreen";
 import SavedScreen from "./screen/SavedScreen";
@@ -11,30 +14,29 @@ import InboxScreen from "./screen/InboxScreen";
 import ProfileScreen from "./screen/ProfileScreen";
 import SettingsScreen from "./screen/SettingsScreen";
 
-/*
-const RootStack = StackNavigator(
-  {
-    Home: {
-      screen: HomeScreen
-    },
-    Details: {
-      screen: DetailsScreen
-    }
-  },
-  {
-    initialRouteName: "Home"
+interface AppState {
+  ready: boolean;
+}
+
+export default class App extends Component<{}, AppState> {
+  constructor(props) {
+    super(props);
+    this.state = { AppState: false };
   }
-);
 
-
-export default class App extends Component {
   render() {
-    return <RootStack />;
+    return (
+      <StyleProvider style={getTheme(common)}>
+        <RootStack />
+      </StyleProvider>
+    );
   }
 }
-*/
 
-export default TabNavigator(
+/**
+ * navigator
+ */
+const Home = TabNavigator(
   {
     Home: { screen: HomeScreen },
     Saved: { screen: SavedScreen },
@@ -77,3 +79,7 @@ export default TabNavigator(
     swipeEnabled: false
   }
 );
+
+const RootStack = StackNavigator({
+  Home: { screen: Home }
+});

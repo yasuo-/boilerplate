@@ -1,54 +1,79 @@
-# Install
+# Native Base Install
 
-**tl;dr**: [Download WSK](https://github.com/google/web-starter-kit/releases/latest) and run `$ npm install --global gulp && npm install` in that directory to get started.
+### [documentaion](https://docs.nativebase.io/docs/GetStarted.html)
 
----
-
-To take advantage of Web Starter Kit you need to:
-
-1. Get a copy of the code.
-2. Install the dependencies if you don't already have them.
-3. Modify the application to your liking.
-4. Deploy your production code.
-
-## Getting the code
-
-[Download](https://github.com/google/web-starter-kit/releases/latest) and extract WSK to where you want to work.
-
-## Prerequisites
-
-### [Node.js](https://nodejs.org)
-
-Bring up a terminal and type `node --version`.
-Node should respond with a version at or above 0.10.x.
-If you require Node, go to [nodejs.org](https://nodejs.org) and click on the big green Install button.
-
-### [Gulp](http://gulpjs.com)
-
-Bring up a terminal and type `gulp --version`.
-If Gulp is installed it should return a version number at or above 3.9.x.
-If you need to install/upgrade Gulp, open up a terminal and type in the following:
-
-```sh
-$ npm install --global gulp
+```
+$ npm install native-base --save
 ```
 
-*This will install Gulp globally. Depending on your user account, you may need to [configure your system](https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md) to install packages globally without administrative privileges.*
+依存関係を解決
 
-
-### Local dependencies
-
-Next, install the local dependencies Web Starter Kit requires:
-
-```sh
-$ npm install
+```
+$ react-native link
 ```
 
-Note: if you have the [Yarn](https://yarnpkg.com/) package manager installed, you can just run `yarn`.
-Web Starter Kit includes a yarn.lock file that will be used here.
+@expo / vector-icons をインストールする
 
-That's it! You should now have everything needed to use the Web Starter Kit.
+```
+npm install @expo/vector-icons --save
+```
 
----
+NativeBase は、loadAsync 関数を使用してロードできるカスタムフォントを使用できるようになる
 
-You may also want to get used to some of the [commands](commands.md) available.
+```
+async componentWillMount() {
+  await Expo.Font.loadAsync({
+    'Roboto': require('native-base/Fonts/Roboto.ttf'),
+    'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+  });
+}
+```
+
+## NativeBase のカスタマイズまで
+
+NativeBase の Theme をカスタマイズする。
+
+NativeBase は React Native の上に構築されています。したがって、どのコンポーネントでも、そのコンポーネントのデフォルトスタイルにマージされる style プロパティを渡すことができます。
+
+1. ネイティブベースをインストールした後、端末からこのコマンドを実行する。
+
+```
+$ node node_modules/native-base/ejectTheme.js
+```
+
+2. すべてのテーマファイルと変数がプロジェクトルートに追加されます。変数またはテーマファイルを変更します。
+
+3. `<StyleProvider>`でテーマを適用するコードまたはコンポーネントをラップします。
+
+4. `<StyleProvider>`の props(`style`)に値として Theme の関数を渡す。\* 注意) 渡し方は関数。
+
+example(マテリアルデザイン)
+
+```
+import React, { Component } from 'react';
+import { Container, Content, Text, StyleProvider } from 'native-base';
+import getTheme from './native-base-theme/components';
+import material from './native-base-theme/variables/material';
+
+​export default class ThemeExample extends Component {
+  render() {
+    return (
+      <StyleProvider style={getTheme(material)}>
+        <Container>
+          <Content>
+            <Text>
+              texttexttexttexttext
+            </Text>
+          </Content>
+        </Container>
+      </StyleProvider>
+    );
+  }
+}
+```
+
+## 3 種類の Theme が使える
+
+1. プラットフォーム(Platform)
+2. マテリアル(Material)
+3. 共通色(Common Colors)
