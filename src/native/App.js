@@ -7,6 +7,7 @@ import { StackNavigator, TabNavigator, TabBarBottom } from "react-navigation";
 import getTheme from "../../native-base-theme/components";
 import common from "../../native-base-theme/variables/commonColor";
 
+import WelcomeScreen from "./screen/WelcomeScreen/Welcome";
 import HomeScreen from "./screen/HomeScreen";
 import SavedScreen from "./screen/SavedScreen";
 import PlansScreen from "./screen/PlansScreen";
@@ -32,6 +33,13 @@ export default class App extends Component<{}, AppState> {
     );
   }
 }
+
+const StackNavigatorOptions = {
+  headerMode: "none",
+  cardStyle: {
+    backgroundColor: "white"
+  }
+};
 
 /**
  * navigator
@@ -81,5 +89,6 @@ const Home = TabNavigator(
 );
 
 const RootStack = StackNavigator({
+  Welcome: { screen: WelcomeScreen },
   Home: { screen: Home }
 });
