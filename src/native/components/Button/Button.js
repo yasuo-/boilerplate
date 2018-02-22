@@ -2,7 +2,7 @@
 
 import React, { Component } from "react";
 import { StyleSheet } from "react-native";
-import { Button as NBButon, Text } from "native-base";
+import { Button as NBButton, Text } from "native-base";
 
 import { Theme } from "../Theme";
 import type { BaseProps } from "../Types";

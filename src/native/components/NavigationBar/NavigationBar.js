@@ -14,7 +14,13 @@ type NavigationBarProps = NavigationBarProps<*> & {
 };
 
 export default class NavigationBar extends Component<NavigationBarProps> {
-  @autobind
+  constructor(props) {
+    super(props);
+
+    this.back = this.back.bind(this);
+  }
+
+  // @autobind
   back() {
     this.props.navigation.goBack();
   }

@@ -1,21 +1,38 @@
 /** @flow */
 
 import React, { Component } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, TouchableOpacity } from "react-native";
 import autobind from "autobind-decorator";
 
-import { Theme, Text, Button, Container } from "../../components";
+// import { Theme, Text, Button, Container } from "../../components/index";
+import { Theme } from "../../components/Theme";
+import { Text } from "../../components/Text";
+import { Button } from "../../components/Button";
+import { Container } from "../../components/Container";
+
 import type { ScreenProps } from "../../components/Types";
 
 export default class Welcome extends Component<ScreenProps<>> {
-  @autobind
+  constructor(props) {
+    super(props);
+
+    this.signUp = this.signUp.bind(this);
+    this.login = this.login.bind(this);
+    this.skip = this.skip.bind(this);
+  }
+
+  // @autobind
   signUp() {
     this.props.navigation.navigate("SignUp");
   }
 
-  @autobind
+  // @autobind
   login() {
     this.props.navigation.navigate("Login");
+  }
+
+  skip() {
+    this.props.navigation.navigate("Home");
   }
 
   render() {
@@ -37,6 +54,11 @@ export default class Welcome extends Component<ScreenProps<>> {
           contrast={true}
           onPress={this.signUp}
         />
+        <TouchableOpacity onPress={this.skip} underlayColor="white">
+          <Text type="header4" style={styles.text}>
+            skip
+          </Text>
+        </TouchableOpacity>
       </Container>
     );
   }
@@ -52,5 +74,9 @@ const styles = StyleSheet.create({
   },
   header: {
     color: "white"
+  },
+  text: {
+    color: "white",
+    textAlign: "right"
   }
 });

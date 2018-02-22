@@ -29,7 +29,7 @@ export default class Text extends Component<TypographyProps> {
     defaultStyle.push({
       color: Theme.typography.color,
       marginBottom: gutterBottom
-        ? isHeader ? Theme.spacing.base : Theme.spacing.small
+        ? isNavigationBar ? Theme.spacing.base : Theme.spacing.small
         : 0
     });
 
