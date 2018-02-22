@@ -17,7 +17,7 @@ import HomeScreen from "./screen/HomeScreen";
 import SavedScreen from "./screen/SavedScreen";
 import PlansScreen from "./screen/PlansScreen";
 import InboxScreen from "./screen/InboxScreen";
-import ProfileScreen from "./screen/ProfileScreen";
+import ProfileScreen from "./screen/ProfileScreen/Profile";
 import SettingsScreen from "./screen/SettingsScreen";
 
 import { Theme } from "./components/Theme";
@@ -55,7 +55,7 @@ class CustomTabBar extends Component<NavigationProps<*>> {
                     : null
                 }
               >
-                <View style={style.tab}>
+                <View style={styles.tab}>
                   <Icon name={info.icon} size={25} {...{ color }} />
                   <Text style={[styles.label, { color }]}>
                     {info.label.toUpperCase()}
@@ -115,6 +115,16 @@ const ExploreNavigator = StackNavigator(
 );
 
 /**
+ * ProfileNavigator
+ */
+const ProfileNavigator = StackNavigator(
+  {
+    Profile: { screen: ProfileScreen }
+  },
+  StackNavigatorOptions
+);
+
+/**
  * HomeNavigator
  */
 const HomeNavigator = TabNavigator(
@@ -123,7 +133,7 @@ const HomeNavigator = TabNavigator(
     Saved: { screen: SavedScreen },
     Plans: { screen: PlansScreen },
     Inbox: { screen: InboxScreen },
-    Profile: { screen: ProfileScreen }
+    Profile: { screen: ProfileNavigator }
   },
   {
     navigationOptions: ({ navigation }) => ({

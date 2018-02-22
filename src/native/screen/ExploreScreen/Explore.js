@@ -5,7 +5,7 @@ import autobind from "autobind-decorator";
 import * as _ from "lodash";
 
 import APIStore from "../../../api";
-import { HomeContainer } from "../HomeScreen";
+import HomeContainer from "../HomeScreen";
 
 import { Text } from "../../components/Text";
 
@@ -31,7 +31,7 @@ export default class Explore extends Component<ScreenProps<>> {
           Explore
         </Text>
         <ScrollView
-          horizontal={true}
+          //horizontal={true}
           style={styles.scrollView}
           contentContainerStyle={styles.container}
         >
@@ -69,7 +69,8 @@ export default class Explore extends Component<ScreenProps<>> {
             city
           </Text>
         </ScrollView>
-        {_.map(APIStore.homesByCities(), (homes, city) => (
+        {/*
+          _.map(APIStore.homesByCities(), (homes, city) => (
           <View key={city}>
             <Text type="header2" gutterBottom={true} style={styles.text}>
               {city}
@@ -84,7 +85,8 @@ export default class Explore extends Component<ScreenProps<>> {
               </Text>
             </ScrollView>
           </View>
-        ))}
+        ))
+      */}
         <ScrollView
           horizontal={true}
           style={styles.scrollView}

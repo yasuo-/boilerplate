@@ -22,7 +22,6 @@ export default class HomeScreen extends Component<HomeContainerProps> {
     const { withGutter, style, children } = this.props;
     return (
       <Container {...{ withGutter }}>
-        <Text>hhhhhhhhhhhhhhh</Text>
         <ScrollView {...{ style }}>{children}</ScrollView>
       </Container>
     );

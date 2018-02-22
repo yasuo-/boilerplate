@@ -2,6 +2,11 @@
   "name": "boilerplate",
   "version": "0.0.1",
   "private": true,
+  "rnpm": {
+    "assets": [
+      "./fonts/"
+    ]
+  },
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "eject": "react-native-scripts eject",
@@ -86,6 +91,7 @@
   "dependencies": {
     "@expo/vector-icons": "^6.3.1",
     "babel-polyfill": "^6.20.0",
+    "elemental": "^0.6.1",
     "expo": "^25.0.0",
     "express": "^4.14.0",
     "firebase": "^4.5.0",
@@ -99,11 +105,12 @@
     "object-assign": "^4.1.1",
     "promise": "^8.0.1",
     "prop-types": "^15.6.0",
-    "react": "16.2.0",
+    "react": "^16.2.0",
     "react-bluekit": "^0.4.4",
     "react-dom": "^16.2.0",
     "react-native": "0.53.0",
     "react-native-navigation": "latest",
+    "react-native-web": "^0.5.1",
     "react-navigation": "^1.0.3",
     "react-navigation-redux-helpers": "^1.0.1",
     "react-redux": "^5.0.6",
@@ -114,6 +121,7 @@
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
     "redux-observable": "^0.18.0",
+    "redux-persist": "^5.9.1",
     "rxjs": "^5.5.6",
     "styled-components": "^3.1.6",
     "sw-toolbox": "^3.6.0"

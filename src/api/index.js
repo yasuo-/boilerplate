@@ -26,7 +26,7 @@ export default class APIStore {
   }
 
   static homesByCities(): ByCities<Home> {
-    return _.groupBy(APIStore.data.homes, home => home.location.city);
+    // return _.groupBy(APIStore.data.homes, home => home.location.city);
   }
 
   static home(id: string): Home {
