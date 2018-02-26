@@ -36,6 +36,7 @@ export default class App extends Component<{}, AppState> {
     this.setState({ ready: true });
   }
 
+
   render() {
     return (
       <StyleProvider style={getTheme(common)}>

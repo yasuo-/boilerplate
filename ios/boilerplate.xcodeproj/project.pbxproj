@@ -54,7 +54,6 @@
 		1CF6C8899BB14BE785E8966A /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DBE13F45C72845898C8D10A0 /* SF-Pro-Display-Light.otf */; };
 		0F03EAE1CD4441018019E914 /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AFBF7E95637C466BA2D84940 /* SF-Pro-Display-Regular.otf */; };
 		4D0DC295D0AE4EFF9228E7EC /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A8166D6B4CE4D85AC055249 /* SF-Pro-Display-Semibold.otf */; };
-/* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		00C302AB1ABCB8CE00DB3ED1 /* PBXContainerItemProxy */ = {
@@ -353,6 +352,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				52FD7F8CE8F547699818A2A4 /* libReactNativeNavigation.a in Frameworks */,
 				F51E506064F84F8D9B582223 /* libRNVectorIcons.a in Frameworks */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
