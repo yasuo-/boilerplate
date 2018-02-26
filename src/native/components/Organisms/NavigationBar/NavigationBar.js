@@ -4,10 +4,10 @@ import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 import autobind from "autobind-decorator";
 
-import IconButton from "../IconButton/IosArrowBackOutline";
-import Text from "../Text";
-import { Theme } from "../Theme";
-import type { NavigatioProps } from "../Types";
+import IconButton from "../../Molecules/IconButton/IosArrowBackOutline";
+import Text from "../../Atom/Text";
+import { Theme } from "../../Theme";
+import type { NavigatioProps } from "../../Types";
 
 type NavigationBarProps = NavigationBarProps<*> & {
   title: string

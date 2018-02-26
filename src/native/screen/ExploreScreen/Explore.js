@@ -1,4 +1,5 @@
 /** @flow */
+
 import React, { Component } from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
 import autobind from "autobind-decorator";
@@ -7,7 +8,10 @@ import * as _ from "lodash";
 import APIStore from "../../../api";
 import HomeContainer from "../HomeScreen";
 
-import { Text } from "../../components/Text";
+import IOSTitleHeader from "../../components/Organisms/IOSTitleHeader";
+import CategoriesContents from "../../components/Organisms/CategoriesContents";
+import CitiesContents from "../../components/Organisms/CitiesContents";
+import HomeContents from "../../components/Organisms/HomeContents";
 
 import { Theme } from "../../components/Theme";
 import type { ScreenProps } from "../Types";
@@ -27,140 +31,17 @@ export default class Explore extends Component<ScreenProps<>> {
   render() {
     return (
       <HomeContainer>
-        <Text type="header1" gutterBottom={true} style={styles.text}>
-          Explore
-        </Text>
-        <ScrollView
-          //horizontal={true}
-          style={styles.scrollView}
-          contentContainerStyle={styles.container}
-        >
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-        </ScrollView>
-        {/*
-          _.map(APIStore.homesByCities(), (homes, city) => (
-          <View key={city}>
-            <Text type="header2" gutterBottom={true} style={styles.text}>
-              {city}
-            </Text>
-            <ScrollView
-              horizontal={true}
-              style={styles.scrollView}
-              contentContainerStyle={styles.container}
-            >
-              <Text type="header2" gutterBottom={true} style={styles.text}>
-                {city}
-              </Text>
-            </ScrollView>
-          </View>
-        ))
-      */}
-        <ScrollView
-          horizontal={true}
-          style={styles.scrollView}
-          contentContainerStyle={styles.container}
-        >
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-          <Text type="header2" gutterBottom={true} style={styles.text}>
-            city
-          </Text>
-        </ScrollView>
+        <IOSTitleHeader title={"Explore"} />
+        <CategoriesContents />
+        {_.map(APIStore.homesByCities(), (homes, city) => (
+          <HomeContents
+            city={city}
+            homes={homes}
+            homeDetails={this.homeDetails}
+          />
+        ))}
+        <CitiesContents />
       </HomeContainer>
     );
   }
 }
-
-/**
- * custom styles
- */
-const styles = StyleSheet.create({
-  text: {
-    paddingLeft: Theme.spacing.base
-  },
-  scrollView: {
-    paddingHorizontal: Theme.spacing.base,
-    marginBottom: Theme.spacing.base
-  },
-  container: {
-    paddingRight: Theme.spacing.base
-  }
-});

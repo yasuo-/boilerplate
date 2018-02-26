@@ -115,6 +115,26 @@ const ExploreNavigator = StackNavigator(
 );
 
 /**
+ * InboxNavigator
+ */
+const InboxNavigator = StackNavigator(
+  {
+    Inbox: { screen: InboxScreen }
+  },
+  StackNavigatorOptions
+);
+
+/**
+ * SavedNavigator
+ */
+const SavedNavigator = StackNavigator(
+  {
+    Saved: { screen: SavedScreen }
+  },
+  StackNavigatorOptions
+); 
+
+/**
  * ProfileNavigator
  */
 const ProfileNavigator = StackNavigator(

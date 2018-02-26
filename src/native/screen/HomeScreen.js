@@ -1,16 +1,9 @@
 /* @flow */
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  TouchableWithoutFeedback,
-  SafeAreaView
-} from "react-native";
+import { ScrollView } from "react-native";
 
 import { Container } from "../components/Container/index";
-import type { BaseProps, NavigationProps } from "../components/Type";
+import type { BaseProps } from "../components/Type";
 
 type HomeContainerProps = BaseProps & {
   withGutter?: boolean,

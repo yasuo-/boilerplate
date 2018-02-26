@@ -4,8 +4,8 @@ import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 //import { Constants } from "expo";
 
-import { Theme } from "../Theme";
-import type { BaseProps } from "../Types";
+import { Theme } from "../../Theme";
+import type { BaseProps } from "../../Types";
 
 type ContainerProps = BaseProps & {
   children: React.ChildrenArray<React.Element<*>>,
