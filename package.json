@@ -19,7 +19,9 @@
     "web-watch": "webpack -w",
     "test": "jest",
     "test:watch": "jest --watch",
-    "lint": "prettier-eslint --write \"./src/**/*.js\""
+    "lint": "prettier-eslint --write \"./src/**/*.js\"",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.0.0",
@@ -79,7 +81,8 @@
     "webpack-dev-middleware": "^1.8.4",
     "webpack-dev-server": "^2.3.0",
     "webpack-hot-middleware": "^2.13.2",
-    "yargs": "^8.0.1"
+    "yargs": "^8.0.1",
+    "@kadira/storybook": "^2.21.0"
   },
   "jest": {
     "preset-expo": "jest-expo",
