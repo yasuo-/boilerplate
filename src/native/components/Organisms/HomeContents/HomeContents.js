@@ -3,8 +3,6 @@
 import React, { Component } from "react";
 import { StyleSheet, ScrollView, View } from "react-native";
 
-import HomeCard from "../../../containers/Molecules/HomeCard";
-
 import { Text } from "../../Atom/Text";
 import { Theme } from "../../Theme";
 import type { BaseProps } from "../../Types";
@@ -32,9 +30,7 @@ export default class HomeContents extends Component<HomeContentsProps> {
           style={styles.scrollView}
           contentContainerStyle={styles.container}
         >
-          {homes.map(home => (
-            <HomeCard key={home.id} onPress={homeDetails} {...{ home }} />
-          ))}
+          {children}
         </ScrollView>
       </View>
     );

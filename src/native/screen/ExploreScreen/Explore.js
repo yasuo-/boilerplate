@@ -12,6 +12,7 @@ import IOSTitleHeader from "../../components/Organisms/IOSTitleHeader";
 import CategoriesContents from "../../components/Organisms/CategoriesContents";
 import CitiesContents from "../../components/Organisms/CitiesContents";
 import HomeContents from "../../components/Organisms/HomeContents";
+import HomeCard from "./HomeCard";
 
 import { Theme } from "../../components/Theme";
 import type { ScreenProps } from "../Types";
@@ -38,7 +39,15 @@ export default class Explore extends Component<ScreenProps<>> {
             city={city}
             homes={homes}
             homeDetails={this.homeDetails}
-          />
+          >
+            {homes.map(home => (
+              <HomeCard
+                key={home.id}
+                onPress={this.homeDetails}
+                {...{ home }}
+              />
+            ))}
+          </HomeContents>
         ))}
         <CitiesContents />
       </HomeContainer>
