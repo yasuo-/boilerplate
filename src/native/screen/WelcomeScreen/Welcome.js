@@ -4,12 +4,11 @@ import React, { Component } from "react";
 import { StyleSheet, View, TouchableOpacity } from "react-native";
 import autobind from "autobind-decorator";
 
-// import { Theme, Text, Button, Container } from "../../components/index";
-import { Theme } from "../../components/Theme";
-import { Text } from "../../components/Text";
-import { Button } from "../../components/Button";
-import { Container } from "../../components/Container";
+import { Text } from "../../components/Atom/Text";
+import { Container } from "../../components/Organisms/Container";
+import { Button } from "../../components/Atom/Button";
 
+import { Theme } from "../../components/Theme";
 import type { ScreenProps } from "../../components/Types";
 
 export default class Welcome extends Component<ScreenProps<>> {
@@ -55,7 +54,7 @@ export default class Welcome extends Component<ScreenProps<>> {
           onPress={this.signUp}
         />
         <TouchableOpacity onPress={this.skip} underlayColor="white">
-          <Text type="header4" style={styles.text}>
+          <Text type="header4" style={styles.text} gutterBottom={true}>
             skip
           </Text>
         </TouchableOpacity>

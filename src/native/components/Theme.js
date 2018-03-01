@@ -46,7 +46,7 @@ type Theme = {
  */
 const theme: Theme = {
   palette: {
-    primary: "#00A699",
+    primary: "#1da1f2", // "#00A699",
     info: "#00A699",
     secondary: "#f7555c",
     success: "#5cb85c",
@@ -57,14 +57,14 @@ const theme: Theme = {
   },
   typography: {
     color: "#484848",
-    /*  bold: "SFProDisplay-Bold",
+    bold: "SFProDisplay-Bold",
     semibold: "SFProDisplay-Semibold",
     normal: "SFProDisplay-Light",
-    light: "SFProDisplay-Light",*/
+    light: "SFProDisplay-Light",
     header1: {
       fontSize: 44,
       lineHeight: 56
-      //   fontFamily: "SFProDisplay-Bold"
+      //fontFamily: "SFProDisplay-Bold"
     },
     header2: {
       fontSize: 32,

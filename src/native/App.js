@@ -3,9 +3,10 @@
 import React, { Component } from "react";
 import { StyleProvider } from "native-base";
 import { StackNavigator, TabNavigator, TabBarBottom } from "react-navigation";
-// import { Font, AppLoading } from "expo";
+import { Font, AppLoading } from "expo";
 
 import APIStore from "../api";
+import Images from "../assets/Images/index";
 import getTheme from "../../native-base-theme/components";
 import common from "../../native-base-theme/variables/commonColor";
 import RootStack from "./navigator";
@@ -17,7 +18,7 @@ interface AppState {
 export default class App extends Component<{}, AppState> {
   constructor(props) {
     super(props);
-    this.state = { AppState: false };
+    this.state = { ready: false };
   }
 
   componentWillMount() {
@@ -25,13 +26,13 @@ export default class App extends Component<{}, AppState> {
   }
 
   async loadStaticResources(): Promise<void> {
-    /*await Font.loadAsync({
+    await Font.loadAsync({
       "SFProDisplay-Bold": require("../../fonts/SF-Pro-Display-Bold.otf"),
       "SFProDisplay-Semibold": require("../../fonts/SF-Pro-Display-Semibold.otf"),
       "SFProDisplay-Regular": require("../../fonts/SF-Pro-Display-Regular.otf"),
       "SFProDisplay-Light": require("../../fonts/SF-Pro-Display-Light.otf")
     });
-    await Images.downloadAsync();*/
+    await Images.downloadAsync();
     await APIStore.load();
     this.setState({ ready: true });
   }
@@ -39,7 +40,7 @@ export default class App extends Component<{}, AppState> {
   render() {
     return (
       <StyleProvider style={getTheme(common)}>
-        <RootStack />
+        {this.state.ready ? <RootStack /> : <AppLoading />}
       </StyleProvider>
     );
   }

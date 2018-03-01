@@ -26,7 +26,7 @@ export default class APIStore {
   }
 
   static homesByCities(): ByCities<Home> {
-    // return _.groupBy(APIStore.data.homes, home => home.location.city);
+    return _.groupBy(APIStore.data.homes, home => home.location.city);
   }
 
   static home(id: string): Home {
@@ -37,6 +37,45 @@ export default class APIStore {
     return _.groupBy(APIStore.data.bookings, booking => {
       const home = APIStore.home(booking.home);
       return home.location.city;
+    });
+  }
+
+  static threads(): Thread[] {
+    return APIStore.data.inbox.threads;
+  }
+
+  static profile(): Profile {
+    return APIStore.data.profile;
+  }
+
+  static toggleSaved(id: string) {
+    const index = APIStore.saved.indexOf(id);
+    if (index === -1) {
+      APIStore.saved.push(id);
+    } else {
+      APIStore.saved.splice(index, 1);
+    }
+    _.forEach(APIStore.listeners, listener => {
+      const homes = APIStore.data.homes.filter(
+        home => APIStore.saved.indexOf(home.id) !== -1
+      );
+      listener(homes);
+    });
+  }
+
+  static savedHomes(callback: Callback) {
+    APIStore.listeners.push(callback);
+    const homes = APIStore.data.homes.filter(
+      home => APIStore.saved.indexOf(home.id) !== -1
+    );
+    callback(homes);
+  }
+
+  static dispose(callback: Callback) {
+    APIStore.listeners.forEach((listener, index) => {
+      if (listener === callback) {
+        APIStore.listeners.splice(index, 1);
+      }
     });
   }
 }

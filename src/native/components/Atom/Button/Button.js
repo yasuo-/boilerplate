@@ -4,8 +4,8 @@ import React, { Component } from "react";
 import { StyleSheet } from "react-native";
 import { Button as NBButton, Text } from "native-base";
 
-import { Theme } from "../Theme";
-import type { BaseProps } from "../Types";
+import { Theme } from "../../Theme";
+import type { BaseProps } from "../../Types";
 
 type ButtonProps = BaseProps & {
   label: string,

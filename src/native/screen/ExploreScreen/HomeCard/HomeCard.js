@@ -3,7 +3,8 @@
 import React, { Component } from "react";
 import { TouchableWithoutFeedback } from "react-native";
 
-import HomeCardComponent from "../../../components/Organisms/HomeCard";
+import HomeCardComponent from "../../../components/Organisms/HomeCard/HomeCard";
+import APIStore from "../../../../api/index";
 
 import type { Home } from "../../../../model/model";
 
@@ -35,11 +36,11 @@ export default class HomeCard extends Component<HomeCardProps, HomeCardState> {
         saved: homes.filter(home => home.id === id).length === 1
       });
     };
-    // APIStore.savedHomes(this.listener);
+    APIStore.savedHomes(this.listener);
   }
 
   componentWillUnmount() {
-    // APIStore.dispose(this.listener);
+    APIStore.dispose(this.listener);
   }
 
   render() {

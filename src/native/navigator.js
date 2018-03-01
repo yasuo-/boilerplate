@@ -13,7 +13,6 @@ import { Ionicons as Icon } from "@expo/vector-icons";
 
 import WelcomeScreen from "./screen/WelcomeScreen/Welcome";
 import ExploreScreen from "./screen/ExploreScreen/Explore";
-import HomeScreen from "./screen/HomeScreen";
 import SavedScreen from "./screen/SavedScreen";
 import PlansScreen from "./screen/PlansScreen";
 import InboxScreen from "./screen/InboxScreen";
@@ -132,7 +131,7 @@ const SavedNavigator = StackNavigator(
     Saved: { screen: SavedScreen }
   },
   StackNavigatorOptions
-); 
+);
 
 /**
  * ProfileNavigator
@@ -156,31 +155,10 @@ const HomeNavigator = TabNavigator(
     Profile: { screen: ProfileNavigator }
   },
   {
-    navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) => {
-        const { routeName } = navigation.state;
-        let iconName;
-        if (routeName === "Home") {
-          iconName = `ios-information-circle${focused ? "" : "-outline"}`;
-        } else if (routeName === "Saved") {
-          iconName = `ios-options${focused ? "" : "-outline"}`;
-        } else if (routeName === "Plans") {
-          iconName = `ios-options${focused ? "" : "-outline"}`;
-        } else if (routeName === "Inbox") {
-          iconName = `ios-options${focused ? "" : "-outline"}`;
-        } else if (routeName === "Profile") {
-          iconName = `ios-options${focused ? "" : "-outline"}`;
-        }
-
-        // You can return any component that you like here! We usually use an
-        // icon component from react-native-vector-icons
-        // return <Ionicons name={iconName} size={25} color={tintColor} />;
-      }
-    }),
-    tabBarComponent: TabBarBottom,
+    tabBarComponent: CustomTabBar,
     tabBarPosition: "bottom",
     tabBarOptions: {
-      activeTintColor: "tomato",
+      activeTintColor: "#1da1f2", //"tomato",
       inactiveTintColor: "gray",
       style: {
         backgroundColor: "white"

@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { ScrollView } from "react-native";
 
-import { Container } from "../components/Container/index";
+import { Container } from "../components/Organisms/Container";
 import type { BaseProps } from "../components/Type";
 
 type HomeContainerProps = BaseProps & {

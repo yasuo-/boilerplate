@@ -3,8 +3,8 @@
 import React, { Component } from "react";
 import { Text as RNText } from "react-native";
 
-import { Theme } from "../Theme";
-import type { BaseProps } from "../Types";
+import { Theme } from "../../Theme";
+import type { BaseProps } from "../../Types";
 
 type TypographyProps = BaseProps & {
   type:

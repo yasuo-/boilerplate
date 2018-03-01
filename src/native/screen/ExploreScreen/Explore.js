@@ -8,11 +8,11 @@ import * as _ from "lodash";
 import APIStore from "../../../api";
 import HomeContainer from "../HomeScreen";
 
-import IOSTitleHeader from "../../components/Organisms/IOSTitleHeader";
-import CategoriesContents from "../../components/Organisms/CategoriesContents";
-import CitiesContents from "../../components/Organisms/CitiesContents";
-import HomeContents from "../../components/Organisms/HomeContents";
-import HomeCard from "./HomeCard";
+import { IOSTitleHeader } from "../../components/Organisms/IOSTitleHeader";
+import { CategoriesContents } from "../../components/Organisms/CategoriesContents";
+import { CitiesContents } from "../../components/Organisms/CitiesContents";
+import { HomeContents } from "../../components/Organisms/HomeContents";
+// import { HomeCard } from "./HomeCard";
 
 import { Theme } from "../../components/Theme";
 import type { ScreenProps } from "../Types";
@@ -34,6 +34,7 @@ export default class Explore extends Component<ScreenProps<>> {
       <HomeContainer>
         <IOSTitleHeader title={"Explore"} />
         <CategoriesContents />
+        {/*
         {_.map(APIStore.homesByCities(), (homes, city) => (
           <HomeContents
             city={city}
@@ -49,6 +50,7 @@ export default class Explore extends Component<ScreenProps<>> {
             ))}
           </HomeContents>
         ))}
+      */}
         <CitiesContents />
       </HomeContainer>
     );

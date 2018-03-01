@@ -3,9 +3,9 @@
 import React, { Component } from "react";
 import { StyleSheet, ScrollView } from "react-native";
 
-import CategoryCard from "../../Molecules/CategoryCard";
+import { CitiesCard } from "../../Molecules/CitiesCard";
 
-import { Images } from "../../../../assets/images";
+import Images from "../../../../assets/Images/index";
 import { Theme } from "../../Theme";
 import type { BaseProps } from "../../Types";
 
@@ -26,9 +26,14 @@ export default class CitiesContents extends Component<CitiesContentsProps> {
         style={styles.scrollView}
         contentContainerStyle={styles.container}
       >
-        <CategoryCard label="Homes" image={Images.homes} />
-        <CategoryCard label="Experiences" image={Images.experiences} />
-        <CategoryCard label="Restaurants" image={Images.restaurants} />
+        <CitiesCard label="Cape Town" image={Images.CapeTown} />
+        <CitiesCard label="London" image={Images.London} />
+        <CitiesCard label="Los Angeles" image={Images.LosAngeles} />
+        <CitiesCard label="Miami" image={Images.Miami} />
+        <CitiesCard label="Nairobi" image={Images.Nairobi} />
+        <CitiesCard label="Paris" image={Images.Paris} />
+        <CitiesCard label="San Francisco" image={Images.SanFrancisco} />
+        <CitiesCard label="Tokyo" image={Images.Tokyo} />
       </ScrollView>
     );
   }

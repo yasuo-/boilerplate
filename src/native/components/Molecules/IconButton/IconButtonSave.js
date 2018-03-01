@@ -23,7 +23,7 @@ type IconButtonProps = BaseProps & {
  */
 const AnimatedIcon = Animated.createAnimatedComponent(Icon);
 
-export default class IosArrowBackOutline extends Component<IconButtonProps> {
+export default class IconButtonSave extends Component<IconButtonProps> {
   render() {
     const { name, onPress, withBackground, iconStyle, animated } = this.props;
     const IconComponent = animated ? AnimatedIcon : Icon;

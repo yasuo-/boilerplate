@@ -6,12 +6,11 @@ import autobind from "autobind-decorator";
 import * as _ from "lodash";
 
 import APIStore from "../../../api";
-import HomeContainer from "../HomeScreen";
+import HomeContainer from "../HomeScreen.js";
+import Text from "../../components/Atom/Text/Text.js";
+import { Theme } from "../../components";
 
-import { Text } from "../../components/Text";
-
-import { Theme } from "../../components/Theme";
-import type { ScreenProps } from "../Types";
+import type { ScreenProps } from "../../components/Types";
 
 export default class Profile extends Component<ScreenProps<>> {
   constructor(props) {

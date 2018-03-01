@@ -3,9 +3,9 @@
 import React, { Component } from "react";
 import { StyleSheet, ScrollView } from "react-native";
 
-import CategoryCard from "../../Molecules/CategoryCard";
+import { CategoryCard } from "../../Molecules/CategoryCard";
 
-import { Images } from "../../../../assets/images";
+import Images from "../../../../assets/Images/index";
 import { Theme } from "../../Theme";
 import type { BaseProps } from "../../Types";
 

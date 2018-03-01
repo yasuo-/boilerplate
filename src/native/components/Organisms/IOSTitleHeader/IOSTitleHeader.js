@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import { StyleSheet } from "react-native";
 
-import Text from "../../Atom/Text";
+import { Text } from "../../Atom/Text";
 import { Theme } from "../../Theme";
 import type { NavigatioProps } from "../../Types";
 

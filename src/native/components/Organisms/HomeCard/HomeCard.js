@@ -7,8 +7,8 @@ import {
   ImageBackground
 } from "react-native";
 
-import { Text } from "../../../Atom/Text";
-import { IconButton } from "../../Molecules/IconButton";
+import { Text } from "../../Atom/Text";
+import { IconButtonSave } from "../../Molecules/IconButton";
 import { Theme } from "../../Theme";
 
 import type { Home } from "../../../../model/model";
@@ -31,7 +31,7 @@ export default class HomeCard extends Component<HomeCardProps> {
           source={{ uri: home.pictures[0] }}
           style={styles.image}
         >
-          <IconButton
+          <IconButtonSave
             name={saved ? "ios-heart" : "md-heart-outline"}
             contrast={true}
             onPress={onPress}
