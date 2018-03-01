@@ -7,8 +7,9 @@
       "./fonts/"
     ]
   },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "react-native-scripts start",
     "eject": "react-native-scripts eject",
     "android": "react-native run-android",
     "ios": "react-native run-ios",

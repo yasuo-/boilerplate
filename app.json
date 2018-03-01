@@ -1,4 +1,7 @@
 {
   "name": "boilerplate",
-  "displayName": "boilerplate"
+  "displayName": "boilerplate",
+  "expo": {
+    "sdkVersion": "25.0.0"
+  }
 }
