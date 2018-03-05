@@ -7,7 +7,7 @@ import UpperTextCard from "../../Molecules/UpperTextCard";
 
 import type { BaseProps } from "../../Type";
 
-type SavedCardProps = BaseProps<*> {
+type SavedCardProps = BaseProps & {
   label: string,
   image: number
 };
@@ -15,7 +15,7 @@ type SavedCardProps = BaseProps<*> {
 export default class SavedCard extends Component<SavedCardProps> {
   render() {
     const { label, image } = this.props;
-    return <UpperTextCard styles={cardStyles} label={label} image={image} />
+    return <UpperTextCard styles={cardStyles} label={label} image={image} />;
   }
 }
 
