@@ -20,7 +20,7 @@ type HomeCardProps = {
 };
 
 
-export default class HomeCard extends Component<HomeCardProps> {
+export default class HomeCardComponent extends Component<HomeCardProps> {
 
   render() {
     const { home, saved onPress } = this.props;

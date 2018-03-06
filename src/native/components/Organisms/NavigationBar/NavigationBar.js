@@ -4,8 +4,8 @@ import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 import autobind from "autobind-decorator";
 
-import IconButton from "../../Molecules/IconButton/IosArrowBackOutline";
-import Text from "../../Atom/Text";
+import { IosArrowBackOutline } from "../../Molecules/IconButton";
+import { Text } from "../../Atom/Text";
 import { Theme } from "../../Theme";
 import type { NavigatioProps } from "../../Types";
 
@@ -30,7 +30,7 @@ export default class NavigationBar extends Component<NavigationBarProps> {
 
     return (
       <View style={styles.header}>
-        <IconButton
+        <IosArrowBackOutline
           name="ios-arrow-back-outline"
           onPress={this.back}
           style={styles.headerSide}

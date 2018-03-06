@@ -17,7 +17,7 @@ import SavedScreen from "./screen/SavedScreen";
 import PlansScreen from "./screen/PlansScreen";
 import InboxScreen from "./screen/InboxScreen";
 import ProfileScreen from "./screen/ProfileScreen/Profile";
-import SettingsScreen from "./screen/SettingsScreen";
+import SettingsScreen from "./screen/ProfileScreen/Settings";
 
 import { Theme } from "./components/Theme";
 import type { NavigationProps } from "./components/Type";
@@ -107,8 +107,8 @@ const StackNavigatorOptions = {
  */
 const ExploreNavigator = StackNavigator(
   {
-    Explore: { screen: ExploreScreen }
-    // HomeOverview: { screen: HomeOverview }
+    Explore: { screen: ExploreScreen },
+    Detail: { screen: ExploreScreen }
   },
   StackNavigatorOptions
 );
@@ -138,7 +138,8 @@ const SavedNavigator = StackNavigator(
  */
 const ProfileNavigator = StackNavigator(
   {
-    Profile: { screen: ProfileScreen }
+    Profile: { screen: ProfileScreen },
+    Settings: { screen: SettingsScreen }
   },
   StackNavigatorOptions
 );

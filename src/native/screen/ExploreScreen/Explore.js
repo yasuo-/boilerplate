@@ -12,7 +12,7 @@ import { IOSTitleHeader } from "../../components/Organisms/IOSTitleHeader";
 import { CategoriesContents } from "../../components/Organisms/CategoriesContents";
 import { CitiesContents } from "../../components/Organisms/CitiesContents";
 import { HomeContents } from "../../components/Organisms/HomeContents";
-// import { HomeCard } from "./HomeCard";
+import { HomeCard } from "./HomeCard";
 
 import { Theme } from "../../components/Theme";
 import type { ScreenProps } from "../Types";
@@ -26,7 +26,7 @@ export default class Explore extends Component<ScreenProps<>> {
 
   // @autobind
   homeDetails(id: string) {
-    this.props.navigation.navigate("HomeOverview", { id });
+    this.props.navigation.navigate("Detail", { id });
   }
 
   render() {
@@ -34,7 +34,7 @@ export default class Explore extends Component<ScreenProps<>> {
       <HomeContainer>
         <IOSTitleHeader title={"Explore"} />
         <CategoriesContents />
-        {/*
+        <CitiesContents />
         {_.map(APIStore.homesByCities(), (homes, city) => (
           <HomeContents
             city={city}
@@ -50,8 +50,6 @@ export default class Explore extends Component<ScreenProps<>> {
             ))}
           </HomeContents>
         ))}
-      */}
-        <CitiesContents />
       </HomeContainer>
     );
   }

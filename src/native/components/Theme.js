@@ -64,7 +64,7 @@ const theme: Theme = {
     header1: {
       fontSize: 44,
       lineHeight: 56
-      //fontFamily: "SFProDisplay-Bold"
+      // fontFamily: "SFProDisplay-Bold"
     },
     header2: {
       fontSize: 32,

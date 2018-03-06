@@ -8,13 +8,13 @@ import IconButton from "../../Molecules/IconButton/IosArrowBackOutline";
 import { Theme } from "../../Theme";
 import type { NavigatioProps } from "../../Types";
 
-type NavigationBarBackProps = NavigationBarProps<*> & {
+type IOSTitleHeaderBackProps = NavigationBarProps<*> & {
   backgroundColor: string,
   iconStyle: string,
   onPress: () => void
 };
 
-export default class NavigationBarBack extends Component<NavigationBarBackProps> {
+export default class IOSTitleHeaderBack extends Component<IOSTitleHeaderBackProps> {
   render() {
     const { backgroundColor, onPress, iconStyle } = this.props;
 

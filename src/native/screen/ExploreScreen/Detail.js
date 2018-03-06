@@ -8,7 +8,7 @@ import Swiper from "react-native-swiper";
 
 import APIStore from "../../../api";
 import DefaultContainer from "../DefaultScreen"
-import { NavigationBarBack } from "../../components/Organisms/NavigationBarBack";
+import { IOSTitleHeaderBack } from "../../components/Organisms/IOSTitleHeaderBack";
 import { DetailsContents } from "../../components/Organisms/DetailContents";
 
 import type { ScreenParams } from "../../components/Types";
@@ -67,7 +67,7 @@ export default class Detail extends Component<ScreenParams<{ id: string }>, Deta
 
     return (
       <DefaultContainer>
-        <NavigationBarBack
+        <IOSTitleHeaderBack
           backgroundColor={backgroundColor}
           iconStyle={...{ iconStyle }}
           onPress={this.back}

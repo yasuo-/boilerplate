@@ -1,11 +1,19 @@
 /** @flow */
 
 import React, { Component } from "react";
-import { TouchableWithoutFeedback } from "react-native";
+import {
+  TouchableWithoutFeedback,
+  StyleSheet,
+  View,
+  ImageBackground
+} from "react-native";
 
-import HomeCardComponent from "../../../components/Organisms/HomeCard/HomeCard";
+import { Text } from "../../../components/Atom/Text";
+import { IconButtonSave } from "../../../components/Molecules/IconButton";
+import { Theme } from "../../../components/Theme";
+
+// import HomeCardComponent from "../../../components/Organisms/HomeCard/HomeCardComponent";
 import APIStore from "../../../../api/index";
-
 import type { Home } from "../../../../model/model";
 
 type HomeCardProps = {
@@ -21,7 +29,7 @@ export default class HomeCard extends Component<HomeCardProps, HomeCardState> {
   constructor(props) {
     super(props);
     this.state = {
-      saved: []
+      saved: false
     };
     this.toggleSaved = this.toggleSaved.bind(this);
   }
@@ -31,10 +39,13 @@ export default class HomeCard extends Component<HomeCardProps, HomeCardState> {
   // @autobind
   toggleSaved() {
     const { id } = this.props.home;
-    this.listener = (home: Home[]) => {
-      this.setState({
-        saved: homes.filter(home => home.id === id).length === 1
-      });
+    APIStore.toggleSaved(id);
+  }
+
+  componentWillMount() {
+    const { id } = this.props.home;
+    this.listener = (homes: Home[]) => {
+      this.setState({ saved: homes.filter(home => home.id === id).length === 1 });
     };
     APIStore.savedHomes(this.listener);
   }
@@ -49,12 +60,59 @@ export default class HomeCard extends Component<HomeCardProps, HomeCardState> {
 
     return (
       <TouchableWithoutFeedback onPress={() => onPress(home.id)}>
-        <HomeCardComponent
-          home={home}
-          saved={saved}
-          onPress={this.toggleSaved}
-        />
+        <View style={styles.container}>
+          <ImageBackground
+            source={{ uri: home.pictures[0] }}
+            style={styles.image}
+          >
+            <IconButtonSave
+              name={saved ? "ios-heart" : "md-heart-outline"}
+              contrast={true}
+              onPress={this.toggleSaved}
+              style={styles.heartBtn}
+            />
+          </ImageBackground>
+          <Text type="micro" gutterBottom={true}>
+            {`${home.category1.toUpperCase()} - ${home.category2.toUpperCase()}`}
+          </Text>
+          <Text type="large" numberOfLines={2} gutterBottom={true}>
+            {home.title}
+          </Text>
+          <Text type="small" gutterBottom={true}>
+            {`${home.price.amount} ${home.price.currency} per person`}
+          </Text>
+        </View>
       </TouchableWithoutFeedback>
     );
   }
 }
+
+/**
+ * custom styles
+ */
+const styles = StyleSheet.create({
+  container: {
+    width: 158,
+    marginRight: Theme.spacing.small
+  },
+  image: {
+    width: 158,
+    height: 103,
+    borderRadius: 2,
+    marginBottom: Theme.spacing.small,
+    flexDirection: "row",
+    justifyContent: "flex-end"
+  },
+  heartBtn: {
+    justifyContent: "center",
+    alignItems: "center"
+  }
+});
+
+/**
+ * <HomeCardComponent
+          home={home}
+          saved={saved}
+          onPress={this.toggleSaved}
+        />
+ */
