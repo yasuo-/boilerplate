@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "rnpm": {
-    "assets": ["./fonts/"]
+    "assets": [
+      "./fonts/"
+    ]
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
@@ -23,6 +25,7 @@
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@kadira/storybook": "^2.21.0",
     "@storybook/addon-actions": "^3.0.0",
     "@storybook/react": "^3.0.0",
     "@webpack-blocks/dev-server2": "^0.4.0",
@@ -80,8 +83,7 @@
     "webpack-dev-middleware": "^1.8.4",
     "webpack-dev-server": "^2.3.0",
     "webpack-hot-middleware": "^2.13.2",
-    "yargs": "^8.0.1",
-    "@kadira/storybook": "^2.21.0"
+    "yargs": "^8.0.1"
   },
   "jest": {
     "preset-expo": "jest-expo",
@@ -114,6 +116,7 @@
     "react-dom": "^16.2.0",
     "react-native": "0.52.0",
     "react-native-navigation": "latest",
+    "react-native-swiper": "^1.5.13",
     "react-native-web": "^0.5.1",
     "react-navigation": "^1.0.3",
     "react-navigation-redux-helpers": "^1.0.1",
