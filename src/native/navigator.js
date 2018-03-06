@@ -13,6 +13,7 @@ import { Ionicons as Icon } from "@expo/vector-icons";
 
 import WelcomeScreen from "./screen/WelcomeScreen/Welcome";
 import ExploreScreen from "./screen/ExploreScreen/Explore";
+import DetailScreen from "./screen/ExploreScreen/Detail";
 import SavedScreen from "./screen/SavedScreen";
 import PlansScreen from "./screen/PlansScreen";
 import InboxScreen from "./screen/InboxScreen";
@@ -108,7 +109,7 @@ const StackNavigatorOptions = {
 const ExploreNavigator = StackNavigator(
   {
     Explore: { screen: ExploreScreen },
-    Detail: { screen: ExploreScreen }
+    Detail: { screen: DetailScreen }
   },
   StackNavigatorOptions
 );

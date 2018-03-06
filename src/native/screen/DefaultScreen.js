@@ -10,6 +10,7 @@ type DefaultScreenProps = BaseProps & {
 
 export default class DefaultScreen extends Component<DefaultScreenProps> {
   render() {
+    const { children } = this.props;
     return (
       <View style={styles.flex}>
         {children}

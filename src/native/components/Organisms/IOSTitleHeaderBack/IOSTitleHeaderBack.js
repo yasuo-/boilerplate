@@ -1,7 +1,8 @@
 /** @flow */
 
 import React, { Component } from "react";
-import { StyleSheet, View, Animated } from "react-native";
+import { StyleSheet, View, Animated, Dimensions } from "react-native";
+import { Constants } from "expo";
 import autobind from "autobind-decorator";
 
 import IconButton from "../../Molecules/IconButton/IosArrowBackOutline";

@@ -1,21 +1,23 @@
 /** @flow */
 
 import React, { Component } from "react";
-import { StyleSheet, View, ScrollView, Image, Dimensions, Animated } from "react-native";
+import { StyleSheet, View, ScrollView, Image, Dimensions, Animated, Text } from "react-native";
 import autobind from "autobind-decorator";
 import { Constants } from "expo";
 import Swiper from "react-native-swiper";
 
 import APIStore from "../../../api";
-import DefaultContainer from "../DefaultScreen"
+import { DefaultContainer } from "../DefaultScreen"
+import IconButton from "../../components/Molecules/IconButton/IosArrowBackOutline"
 import { IOSTitleHeaderBack } from "../../components/Organisms/IOSTitleHeaderBack";
-import { DetailsContents } from "../../components/Organisms/DetailContents";
+// import { DetailContents } from "../../components/Organisms/DetailContents";
 
+import { Theme } from "../../components/Theme";
 import type { ScreenParams } from "../../components/Types";
 
 type DetailViewState = {
-  scrollY: Animated.Value,
-  loading: boolean
+  //  scrollY: Animated.Value,
+  //   loading: boolean
 };
 
 export default class Detail extends Component<ScreenParams<{ id: string }>, DetailViewState> {
@@ -66,17 +68,28 @@ export default class Detail extends Component<ScreenParams<{ id: string }>, Deta
     };
 
     return (
-      <DefaultContainer>
-        <IOSTitleHeaderBack
-          backgroundColor={backgroundColor}
-          iconStyle={...{ iconStyle }}
-          onPress={this.back}
-        />
-        <DetailsContents
-          {...this.props}
-          {...this.state}
-        />
-      </DefaultContainer>
+      <View style={styles.flex}>
+        <Animated.View style={[styles.header, { backgroundColor }]}>
+          <IconButton name="ios-arrow-back-outline" onPress={this.back} animated={true} {...{ iconStyle }} />
+        </Animated.View>
+        <Text>fff</Text>
+
+      </View >
     );
   }
 }
+
+/*
+
+<DetailsContents
+          {...this.props}
+          {...this.state}
+        />
+        */
+const { width } = Dimensions.get("window");
+const height = width * 0.67 + Constants.statusBarHeight;
+const styles = StyleSheet.create({
+  flex: {
+    flex: 1
+  }
+});
