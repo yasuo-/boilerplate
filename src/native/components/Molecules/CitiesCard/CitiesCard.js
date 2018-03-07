@@ -1,7 +1,7 @@
 /** @flow */
 
 import React, { Component } from "react";
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Image, TouchableWithoutFeedback } from "react-native";
 
 import { Text } from "../../Atom/Text";
 import { Theme } from "../../Theme";
@@ -13,15 +13,17 @@ type CitiesCardProps = {
 
 export default class CitiesCard extends Component<CitiesCardProps> {
   render() {
-    const { label, image } = this.props;
+    const { label, image, onPress } = this.props;
 
     return (
-      <View style={styles.container}>
-        <Image source={image} style={styles.image} />
-        <Text type="large" gutterBottom={true} style={styles.text}>
-          {label}
-        </Text>
-      </View>
+      <TouchableWithoutFeedback onPress={() => onPress()}>
+        <View style={styles.container}>
+          <Image source={image} style={styles.image} />
+          <Text type="large" gutterBottom={true} style={styles.text}>
+            {label}
+          </Text>
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }

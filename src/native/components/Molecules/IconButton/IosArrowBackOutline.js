@@ -1,7 +1,7 @@
 /** @flow */
 
 import React, { Component } from "react";
-import { StyleSheet, Animated } from "react-native";
+import { StyleSheet, Animated, Text } from "react-native";
 import { Button } from "native-base";
 import { Ionicons as Icon } from "@expo/vector-icons";
 

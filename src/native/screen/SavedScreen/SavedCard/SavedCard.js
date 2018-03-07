@@ -3,10 +3,10 @@
 import React, { Component } from "react";
 import { TouchableWithoutFeedback } from "react-native";
 
-import SavedCardComponents from "../../../components/Organisms/SavedCard";
-import type { NavigationProps } from "../../../components/Type";
+import SavedCardComponents from "../../../components/Organisms/SavedCard/SavedCard";
+import { Theme } from "../../../components/Theme";
 
-type SavedCardProps = NavigationProps<*> {
+type SavedCardProps = {
   label: string,
   image: number
 };

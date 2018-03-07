@@ -3,10 +3,11 @@
 import React, { Component } from "react";
 
 import HomeContainer from "../HomeScreen";
-import IOSTitleHeader from "../../components/Organisms/IOSTitleHeader";
-import SavedCard from "./SavedCard";
+import SectionContainer from "../SectionScreen";
+import { IOSTitleHeader } from "../../components/Organisms/IOSTitleHeader";
+import { SavedCard } from "./SavedCard";
 
-import { Images } from "../../../../assets/images";
+import Images from "../../../assets/Images/index";
 import type { ScreenProps } from "../Types";
 
 export default class Saved extends Component<ScreenProps<>> {
@@ -14,19 +15,21 @@ export default class Saved extends Component<ScreenProps<>> {
     const { navigation } = this.props;
 
     return (
-      <HomeContainer withGutter={true}>
+      <HomeContainer>
         <IOSTitleHeader title={"Saved"} />
-        <SavedCard label="Homes" image={Images.homes} {...{ navigation }} />
-        <SavedCard
-          label="Experiences"
-          image={Images.experiences}
-          {...{ navigation }}
-        />
-        <SavedCard
-          label="Restaurants"
-          image={Images.restaurants}
-          {...{ navigation }}
-        />
+        <SectionContainer withGutter={true}>
+          <SavedCard label="Homes" image={Images.homes} {...{ navigation }} />
+          <SavedCard
+            label="Experiences"
+            image={Images.experiences}
+            {...{ navigation }}
+          />
+          <SavedCard
+            label="Restaurants"
+            image={Images.restaurants}
+            {...{ navigation }}
+          />
+        </SectionContainer>
       </HomeContainer>
     );
   }

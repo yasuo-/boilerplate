@@ -1,15 +1,15 @@
 /** @flow */
 
 import React, { Component } from "react";
-import { TouchableWithoutFeedback } from "react-native";
+import { TouchableWithoutFeedback, Text } from "react-native";
 import autobind from "autobind-decorator";
 
 import { ThreadItemComponent } from "../../../components/Organisms/ThreadItem";
 
-import type { NavigationProps } from "../../../components/Types";
+// import type { NavigationProps } from "../../../components/Types";
 import type { Thread } from "../../../model/model";
 
-type ThreadItemProps = NavigationProps<*> & {
+type ThreadItemProps = {
   thread: Thread
 };
 
@@ -31,8 +31,12 @@ export default class ThreadItem extends Component<ThreadItemProps> {
 
     return (
       <TouchableWithoutFeedback onPress={this.openThread}>
-        <ThreadItemComponent thread={thread} />
+        <Text>test</Text>
       </TouchableWithoutFeedback>
     );
   }
 }
+
+/**
+ * <ThreadItemComponent thread={thread} />
+ */

@@ -46,7 +46,7 @@ type Theme = {
  */
 const theme: Theme = {
   palette: {
-    primary: "#1da1f2", // "#00A699",
+    primary: "#fd5879", //"#1da1f2", // "#00A699",
     info: "#00A699",
     secondary: "#f7555c",
     success: "#5cb85c",

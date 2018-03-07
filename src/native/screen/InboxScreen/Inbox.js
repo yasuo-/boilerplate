@@ -1,19 +1,15 @@
 /** @flow */
 
 import React, { Component } from "react";
-import { StyleSheet, View, ScrollView } from "react-native";
-import autobind from "autobind-decorator";
-import * as _ from "lodash";
 
 import APIStore from "../../../api";
 import HomeContainer from "../HomeScreen";
-
-import IOSTitleHeader from "../../components/Organisms/IOSTitleHeader";
+import SectionContainer from "../SectionScreen";
+import { IOSTitleHeader } from "../../components/Organisms/IOSTitleHeader";
 import { Text } from "../../components/Atom/Text";
 import ThreadItem from "./ThreadItem";
 
-import { Theme } from "../../components/Theme";
-import type { ScreenProps } from "../Types";
+import type { ScreenProps } from "../../components/Types";
 
 export default class Inbox extends Component<ScreenProps<>> {
   render() {
@@ -21,13 +17,18 @@ export default class Inbox extends Component<ScreenProps<>> {
     const threads = APIStore.threads();
 
     return (
-      <HomeContainer withGutter={true}>
+      <HomeContainer>
         <IOSTitleHeader title={"Inbox"} />
-        <Text gutterBottom={true}>You have no unread messages</Text>
-        {threads.map(thread => (
-          <ThreadItem key={thread.name} {...{ thread, navigation }} />
-        ))}
+        <SectionContainer withGutter={true}>
+          <Text gutterBottom={true}>You have no messages</Text>
+
+        </SectionContainer>
       </HomeContainer>
     );
   }
 }
+/*
+{threads.map(thread => (
+            <ThreadItem key={thread.name} {...{ thread, navigation }} />
+          ))}
+          */

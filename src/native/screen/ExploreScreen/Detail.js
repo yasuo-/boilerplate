@@ -1,7 +1,37 @@
 /** @flow */
 
 import React, { Component } from "react";
-import { StyleSheet, View, ScrollView, Image, Dimensions, Animated, Text } from "react-native";
+import { StyleSheet, View, ScrollView, Image, Dimensions, Animated, Text, Button } from "react-native";
+
+import HomeContainer from "../HomeScreen";
+import SectionContainer from "../SectionScreen";
+import { IOSTitleHeader } from "../../components/Organisms/IOSTitleHeader";
+
+import type { ScreenProps } from "../Types";
+
+export default class Detail extends Component<ScreenProps<>> {
+  render() {
+
+    return (
+      <HomeContainer>
+        <IOSTitleHeader title={"Detail"} />
+        <SectionContainer withGutter={true}>
+          <Text>Detail page</Text>
+          <Button
+            title="Go to Home"
+            onPress={() => this.props.navigation.navigate("Home")}
+          />
+        </SectionContainer>
+      </HomeContainer>
+    );
+  }
+}
+
+
+
+/*
+import React, { Component } from "react";
+import { StyleSheet, View, ScrollView, Image, Dimensions, Animated, Text, Button } from "react-native";
 import autobind from "autobind-decorator";
 import { Constants } from "expo";
 import Swiper from "react-native-swiper";
@@ -69,11 +99,19 @@ export default class Detail extends Component<ScreenParams<{ id: string }>, Deta
 
     return (
       <View style={styles.flex}>
+        <IOSTitleHeaderBack
+          backgroundColor={backgroundColor}
+          iconStyle={iconStyle}
+          onPress={this.back}
+        />
         <Animated.View style={[styles.header, { backgroundColor }]}>
           <IconButton name="ios-arrow-back-outline" onPress={this.back} animated={true} {...{ iconStyle }} />
         </Animated.View>
-        <Text>fff</Text>
-
+        <Text>Detail page</Text>
+        <Button
+          title="Go to Home"
+          onPress={() => this.props.navigation.navigate("Home")}
+        />
       </View >
     );
   }
@@ -86,6 +124,7 @@ export default class Detail extends Component<ScreenParams<{ id: string }>, Deta
           {...this.state}
         />
         */
+       /*
 const { width } = Dimensions.get("window");
 const height = width * 0.67 + Constants.statusBarHeight;
 const styles = StyleSheet.create({
@@ -93,3 +132,4 @@ const styles = StyleSheet.create({
     flex: 1
   }
 });
+*/

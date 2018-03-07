@@ -2,13 +2,7 @@
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 
-import type { BaseProps } from "../components/Type";
-
-type DefaultScreenProps = BaseProps & {
-  children: React.ChildrenArray<React.Element<*>>
-};
-
-export default class DefaultScreen extends Component<DefaultScreenProps> {
+export default class DefaultScreen extends Component<> {
   render() {
     const { children } = this.props;
     return (

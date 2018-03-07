@@ -15,17 +15,23 @@ import { HomeContents } from "../../components/Organisms/HomeContents";
 import { HomeCard } from "./HomeCard";
 
 import { Theme } from "../../components/Theme";
-import type { ScreenProps } from "../Types";
+import type { ScreenProps } from "../../components/Types";
 
 export default class Explore extends Component<ScreenProps<>> {
   constructor(props) {
     super(props);
 
-    this.homeDetails = this.homeDetails.bind(this);
+    this.Lists = this.Lists.bind(this);
+    this.Details = this.Details.bind(this);
   }
 
   // @autobind
-  homeDetails(id: string) {
+  Lists() {
+    this.props.navigation.navigate("List");
+  }
+
+  // @autobind
+  Details(id: string) {
     this.props.navigation.navigate("Detail", { id });
   }
 
@@ -33,18 +39,18 @@ export default class Explore extends Component<ScreenProps<>> {
     return (
       <HomeContainer>
         <IOSTitleHeader title={"Explore"} />
-        <CategoriesContents />
-        <CitiesContents />
+        <CategoriesContents onPress={this.Lists} />
+        <CitiesContents onPress={this.Lists} />
         {_.map(APIStore.homesByCities(), (homes, city) => (
           <HomeContents
             city={city}
             homes={homes}
-            homeDetails={this.homeDetails}
+            homeDetails={this.Details}
           >
             {homes.map(home => (
               <HomeCard
                 key={home.id}
-                onPress={this.homeDetails}
+                onPress={this.Details}
                 {...{ home }}
               />
             ))}

@@ -20,20 +20,21 @@ export default class CitiesContents extends Component<CitiesContentsProps> {
   }
 
   render() {
+    const { onPress } = this.props;
     return (
       <ScrollView
         horizontal={true}
         style={styles.scrollView}
         contentContainerStyle={styles.container}
       >
-        <CitiesCard label="Cape Town" image={Images.CapeTown} />
-        <CitiesCard label="London" image={Images.London} />
-        <CitiesCard label="Los Angeles" image={Images.LosAngeles} />
-        <CitiesCard label="Miami" image={Images.Miami} />
-        <CitiesCard label="Nairobi" image={Images.Nairobi} />
-        <CitiesCard label="Paris" image={Images.Paris} />
-        <CitiesCard label="San Francisco" image={Images.SanFrancisco} />
-        <CitiesCard label="Tokyo" image={Images.Tokyo} />
+        <CitiesCard label="Tokyo" image={Images.Tokyo} onPress={onPress} />
+        <CitiesCard label="Paris" image={Images.Paris} onPress={onPress} />
+        <CitiesCard label="San Francisco" image={Images.SanFrancisco} onPress={onPress} />
+        <CitiesCard label="Cape Town" image={Images.CapeTown} onPress={onPress} />
+        <CitiesCard label="London" image={Images.London} onPress={onPress} />
+        <CitiesCard label="Los Angeles" image={Images.LosAngeles} onPress={onPress} />
+        <CitiesCard label="Miami" image={Images.Miami} onPress={onPress} />
+        <CitiesCard label="Nairobi" image={Images.Nairobi} onPress={onPress} />
       </ScrollView>
     );
   }

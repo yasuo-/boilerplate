@@ -3,11 +3,10 @@
 import React, { Component } from "react";
 import { StyleSheet, Dimensions } from "react-native";
 
-import UpperTextCard from "../../Molecules/UpperTextCard";
+import { UpperTextCard } from "../../Molecules/UpperTextCard";
+import { Theme } from "../../Theme";
 
-import type { BaseProps } from "../../Type";
-
-type SavedCardProps = BaseProps & {
+type SavedCardProps = {
   label: string,
   image: number
 };

@@ -39,7 +39,7 @@ export default class IconButtonSave extends Component<IconButtonProps> {
           color={
             withBackground
               ? Theme.palette.primary
-              : contrast ? "white" : Theme.typography.color
+              : contrast ? Theme.palette.primary : Theme.typography.color
           }
           style={iconStyle}
         />
@@ -48,6 +48,19 @@ export default class IconButtonSave extends Component<IconButtonProps> {
   }
 }
 
+
+/**
+ * <IconComponent
+          {...{ name }}
+          size={25}
+          color={
+            withBackground
+              ? Theme.palette.primary
+              : contrast ? "white" : Theme.typography.color
+          }
+          style={iconStyle}
+        />
+ */
 /**
  * custom style
  */

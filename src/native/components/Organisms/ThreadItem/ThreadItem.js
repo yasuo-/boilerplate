@@ -5,15 +5,14 @@ import { StyleSheet, View } from "react-native";
 import * as _ from "lodash";
 import moment from "moment";
 
-import { Avatar } from "";
+import { Avatar } from "../../Atom/Avatar";
 import { Text } from "../../Atom/Text";
 
 import { Theme } from "../../Theme";
-import type { NavigationProps } from "../../Types";
-import type { Thread } from "../../../../model/model";
+// import type { Thread } from "../../../../model/model";
 
-type ThreadItemProps = NavigationProps<*> & {
-  thread: Thread
+type ThreadItemProps = {
+  //  thread: Thread
 };
 
 export default class ThreadItem extends Component<ThreadItemProps> {
@@ -24,20 +23,9 @@ export default class ThreadItem extends Component<ThreadItemProps> {
 
     return (
       <View>
-        <View style={styles.container}>
-          <Avatar uri={thread.picture} />
-          <View style={styles.overview}>
-            <View style={styles.header}>
-              <Text numberOfLines={1} style={styles.name}>
-                {thread.name}
-              </Text>
-              <Text type="small" numberOfLines={1}>
-                {lastActivity}
-              </Text>
-            </View>
-            <Text numberOfLines={1}>{lastMessage.message}</Text>
-          </View>
-        </View>
+        <Text numberOfLines={1} style={styles.name}>
+          sss
+         </Text>
       </View>
     );
   }
@@ -68,3 +56,20 @@ const styles = StyleSheet.create({
     fontFamily: Theme.typography.semibold
   }
 });
+
+/*
+<View style={styles.container}>
+          <Avatar uri={thread.picture} />
+          <View style={styles.overview}>
+            <View style={styles.header}>
+              <Text numberOfLines={1} style={styles.name}>
+                {thread.name}
+              </Text>
+              <Text type="small" numberOfLines={1}>
+                {lastActivity}
+              </Text>
+            </View>
+            <Text numberOfLines={1}>{lastMessage.message}</Text>
+          </View>
+        </View>
+        */
