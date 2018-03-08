@@ -1,7 +1,16 @@
 /** @flow */
 
 import React, { Component } from "react";
-import { StyleSheet, View, ScrollView, Image, Dimensions, Animated, Text, Button } from "react-native";
+import {
+  StyleSheet,
+  View,
+  ScrollView,
+  Image,
+  Dimensions,
+  Animated,
+  Text,
+  Button
+} from "react-native";
 
 import HomeContainer from "../HomeScreen";
 import SectionContainer from "../SectionScreen";
@@ -11,7 +20,6 @@ import type { ScreenProps } from "../Types";
 
 export default class Detail extends Component<ScreenProps<>> {
   render() {
-
     return (
       <HomeContainer>
         <IOSTitleHeader title={"Detail"} />
@@ -26,8 +34,6 @@ export default class Detail extends Component<ScreenProps<>> {
     );
   }
 }
-
-
 
 /*
 import React, { Component } from "react";
@@ -124,7 +130,7 @@ export default class Detail extends Component<ScreenParams<{ id: string }>, Deta
           {...this.state}
         />
         */
-       /*
+/*
 const { width } = Dimensions.get("window");
 const height = width * 0.67 + Constants.statusBarHeight;
 const styles = StyleSheet.create({

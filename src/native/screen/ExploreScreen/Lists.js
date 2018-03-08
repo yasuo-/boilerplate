@@ -1,7 +1,16 @@
 /** @flow */
 
 import React, { Component } from "react";
-import { StyleSheet, View, ScrollView, Image, Dimensions, Animated, Text, Button } from "react-native";
+import {
+  StyleSheet,
+  View,
+  ScrollView,
+  Image,
+  Dimensions,
+  Animated,
+  Text,
+  Button
+} from "react-native";
 
 import HomeContainer from "../HomeScreen";
 import SectionContainer from "../SectionScreen";
@@ -11,7 +20,6 @@ import type { ScreenProps } from "../Types";
 
 export default class Lists extends Component<ScreenProps<>> {
   render() {
-
     return (
       <HomeContainer>
         <IOSTitleHeader title={"list"} />

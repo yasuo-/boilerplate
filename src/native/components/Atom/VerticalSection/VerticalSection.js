@@ -10,13 +10,9 @@ type VerticalSectionProps = BaseProps & {
 
 export default class VerticalSection extends Component<VerticalSectionProps> {
   render() {
-    return (
-      <View style={styles.container}>
-        {children}
-      </View>
-    );
+    return <View style={styles.container}>{children}</View>;
   }
-};
+}
 
 const styles = StyleSheet.create({
   container: {

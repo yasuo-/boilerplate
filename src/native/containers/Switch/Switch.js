@@ -35,7 +35,7 @@ export default class Switch extends Component<SwitchProps, SwitchState> {
   toggle() {
     const { onToggle } = this.props;
     const { value } = this.state;
-    this.setState({ value: !value })
+    this.setState({ value: !value });
 
     if (onToggle) onToggle(!value);
   }
@@ -43,12 +43,7 @@ export default class Switch extends Component<SwitchProps, SwitchState> {
   render() {
     const { onTintColor } = this.props;
     const { value } = this.state;
-    return (
-      <RNSwitch
-        {...{ onTintColor, value }}
-        onValueChange={this.toggle}
-      />
-    );
+    return <RNSwitch {...{ onTintColor, value }} onValueChange={this.toggle} />;
   }
 }
 /**

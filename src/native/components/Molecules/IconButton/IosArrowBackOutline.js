@@ -25,7 +25,15 @@ const AnimatedIcon = Animated.createAnimatedComponent(Icon);
 
 export default class IosArrowBackOutline extends Component<IconButtonProps> {
   render() {
-    const { name, onPress, withBackground, iconStyle, animated, contrast, style } = this.props;
+    const {
+      name,
+      onPress,
+      withBackground,
+      iconStyle,
+      animated,
+      contrast,
+      style
+    } = this.props;
     const IconComponent = animated ? AnimatedIcon : Icon;
     const btnStyle = [style, styles.btnBase];
 

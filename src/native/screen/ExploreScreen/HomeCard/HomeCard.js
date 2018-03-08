@@ -45,7 +45,9 @@ export default class HomeCard extends Component<HomeCardProps, HomeCardState> {
   componentWillMount() {
     const { id } = this.props.home;
     this.listener = (homes: Home[]) => {
-      this.setState({ saved: homes.filter(home => home.id === id).length === 1 });
+      this.setState({
+        saved: homes.filter(home => home.id === id).length === 1
+      });
     };
     APIStore.savedHomes(this.listener);
   }

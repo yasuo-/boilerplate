@@ -11,12 +11,12 @@ import type { BaseProps } from "../../Types";
 type Ratings = {
   value: number,
   votes: number
-}
+};
 
 /**
  * Ratings
  * 評価components
-*/
+ */
 export default class Ratings extends Component<RatingsProps> {
   render() {
     const { votes, value } = this.props;
@@ -28,15 +28,13 @@ export default class Ratings extends Component<RatingsProps> {
 
     return (
       <View style={styles.container}>
-        {
-          to(filledStars)
-            .map(key => <Icon name="ios-star" {...{ key, size, color }} />)
-        }
+        {to(filledStars).map(key => (
+          <Icon name="ios-star" {...{ key, size, color }} />
+        ))}
         {halfStar && <Icon name="ios-star-half" {...{ size, color }} />}
-        {
-          to(emptyStars)
-            .map(key => <Icon name="ios-star-outline" {...{ key, size, color }} />)
-        }
+        {to(emptyStars).map(key => (
+          <Icon name="ios-star-outline" {...{ key, size, color }} />
+        ))}
         <Text style={styles.text}>{`${votes} votes`}</Text>
       </View>
     );
@@ -48,8 +46,8 @@ const to = (index: number): number[] => {
   for (let i = 0; i < index; i++) {
     numbers.push(i);
   }
-  return numbers
-}
+  return numbers;
+};
 
 /**
  * custom style
@@ -61,7 +59,7 @@ const styles = StyleSheet.create({
     borderColor: Theme.palette.lightGray,
     borderBottomWidth: 1,
     paddingBottom: Theme.spacing.small,
-    marginBottom: Theme.spacing.small,
+    marginBottom: Theme.spacing.small
   },
   text: {
     marginLeft: Theme.spacing.tiny,

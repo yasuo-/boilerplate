@@ -10,7 +10,7 @@ type MapViewProps = {
   latitude: string,
   longitude: string,
   latitudeDelta: number,
-  longitudeDelta: number,
+  longitudeDelta: number
 };
 
 export default class MapView extends Component<MapViewProps> {
@@ -36,10 +36,7 @@ export default class MapView extends Component<MapViewProps> {
           longitudeDelta
         }}
       >
-        <MapView.Marker
-          coordinate={{ latitude, longitude }}
-          title={title}
-        />
+        <MapView.Marker coordinate={{ latitude, longitude }} title={title} />
       </MapView>
     );
   }

@@ -5,14 +5,16 @@ import { StyleSheet, View } from "react-native";
 import { List, ListItem, Body } from "native-base";
 import autobind from "autobind-decorator";
 
-import { NavigationBar } from "../../components/Organisms/NavigationBar"
+import { NavigationBar } from "../../components/Organisms/NavigationBar";
 import { Container } from "../../components/Organisms/Container";
 import { Text } from "../../components/Atom/Text";
 import { Switch } from "./Switch";
 import { Theme } from "../../components/Theme";
 import type { ScreenParams } from "../../components/Types";
 
-export default class Settings extends Component<ScreenParams<{ currency: string }>> {
+export default class Settings extends Component<
+  ScreenParams<{ currency: string }>
+> {
   constructor(props) {
     super(props);
 
@@ -22,13 +24,17 @@ export default class Settings extends Component<ScreenParams<{ currency: string 
   // @autobind
   currencies() {
     const { navigation } = this.props;
-    const currency = navigation.state.params ? navigation.state.params.currency : "Japan (円)";
+    const currency = navigation.state.params
+      ? navigation.state.params.currency
+      : "Japan (円)";
     navigation.navigate("Currencies", { currency });
   }
 
   render() {
     const { navigation } = this.props;
-    const currency = navigation.state.params ? navigation.state.params.currency : "Japan (円)";
+    const currency = navigation.state.params
+      ? navigation.state.params.currency
+      : "Japan (円)";
 
     return (
       <Container>

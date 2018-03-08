@@ -29,10 +29,22 @@ export default class CitiesContents extends Component<CitiesContentsProps> {
       >
         <CitiesCard label="Tokyo" image={Images.Tokyo} onPress={onPress} />
         <CitiesCard label="Paris" image={Images.Paris} onPress={onPress} />
-        <CitiesCard label="San Francisco" image={Images.SanFrancisco} onPress={onPress} />
-        <CitiesCard label="Cape Town" image={Images.CapeTown} onPress={onPress} />
+        <CitiesCard
+          label="San Francisco"
+          image={Images.SanFrancisco}
+          onPress={onPress}
+        />
+        <CitiesCard
+          label="Cape Town"
+          image={Images.CapeTown}
+          onPress={onPress}
+        />
         <CitiesCard label="London" image={Images.London} onPress={onPress} />
-        <CitiesCard label="Los Angeles" image={Images.LosAngeles} onPress={onPress} />
+        <CitiesCard
+          label="Los Angeles"
+          image={Images.LosAngeles}
+          onPress={onPress}
+        />
         <CitiesCard label="Miami" image={Images.Miami} onPress={onPress} />
         <CitiesCard label="Nairobi" image={Images.Nairobi} onPress={onPress} />
       </ScrollView>

@@ -1,19 +1,19 @@
 /** @flow */
 
 import React, { Component, Children } from "react";
-import { StyleSheet, View, Text, } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import { Button } from "native-base";
 
 import { Theme } from "../../Theme";
 
 interface BaseFieldProps {
-  label: string,
-  contrast?: boolean
+  label: string;
+  contrast?: boolean;
 }
 
 interface FieldProps extends BaseFieldProps {
-  right?: { label: string, onPress: () => void },
-  children: React.Element<*>
+  right?: { label: string, onPress: () => void };
+  children: React.Element<*>;
 }
 
 export default class Field extends Component<FieldProps> {
@@ -21,7 +21,6 @@ export default class Field extends Component<FieldProps> {
     const { label, contrast, right, children } = this.props;
     const containerStyle = [styles.container];
     const labelStyle = [styles.label];
-
 
     if (contrast) {
       containerStyle.push(styles.containerContrast);
@@ -32,13 +31,11 @@ export default class Field extends Component<FieldProps> {
       <View style={containerStyle}>
         <View style={styles.labelContainer}>
           <Text style={labelStyle}>{label.toUpperCase()}</Text>
-          {
-            right && (
-              <Button onPress={right.onPress} transparent={true}>
-                <Text style={labelStyle}>{right.label.toUpperCase()}</Text>
-              </Button>
-            )
-          }
+          {right && (
+            <Button onPress={right.onPress} transparent={true}>
+              <Text style={labelStyle}>{right.label.toUpperCase()}</Text>
+            </Button>
+          )}
         </View>
         {children}
       </View>

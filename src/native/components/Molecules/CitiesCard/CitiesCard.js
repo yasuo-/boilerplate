@@ -1,7 +1,12 @@
 /** @flow */
 
 import React, { Component } from "react";
-import { StyleSheet, View, Image, TouchableWithoutFeedback } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Image,
+  TouchableWithoutFeedback
+} from "react-native";
 
 import { Text } from "../../Atom/Text";
 import { Theme } from "../../Theme";

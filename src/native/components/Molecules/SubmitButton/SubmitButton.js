@@ -7,7 +7,7 @@ import { IconButton } from "../IconButton";
 import { Theme } from "../../Theme";
 
 interface SubmitButtonProps {
-  onPress: () => void
+  onPress: () => void;
 }
 
 /**

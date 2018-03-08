@@ -16,7 +16,7 @@ type CategoriesContentsProps = BaseProps & {
 
 export default class CategoriesContents extends Component<
   CategoriesContentsProps
-  > {
+> {
   constructor(props) {
     super(props);
   }
@@ -30,8 +30,16 @@ export default class CategoriesContents extends Component<
         contentContainerStyle={styles.container}
       >
         <CategoryCard label="Homes" image={Images.homes} onPress={onPress} />
-        <CategoryCard label="Experiences" image={Images.experiences} onPress={onPress} />
-        <CategoryCard label="Restaurants" image={Images.restaurants} onPress={onPress} />
+        <CategoryCard
+          label="Experiences"
+          image={Images.experiences}
+          onPress={onPress}
+        />
+        <CategoryCard
+          label="Restaurants"
+          image={Images.restaurants}
+          onPress={onPress}
+        />
       </ScrollView>
     );
   }

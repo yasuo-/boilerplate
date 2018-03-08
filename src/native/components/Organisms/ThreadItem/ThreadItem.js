@@ -25,7 +25,7 @@ export default class ThreadItem extends Component<ThreadItemProps> {
       <View>
         <Text numberOfLines={1} style={styles.name}>
           sss
-         </Text>
+        </Text>
       </View>
     );
   }

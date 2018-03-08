@@ -27,10 +27,10 @@ export default class App extends Component<{}, AppState> {
 
   async loadStaticResources(): Promise<void> {
     await Font.loadAsync({
-//      "SFProDisplay-Bold": require("../../fonts/SF-Pro-Display-Bold.otf"),
-//      "SFProDisplay-Semibold": require("../../fonts/SF-Pro-Display-Semibold.otf"),
-//      "SFProDisplay-Regular": require("../../fonts/SF-Pro-Display-Regular.otf"),
-//      "SFProDisplay-Light": require("../../fonts/SF-Pro-Display-Light.otf")
+      //      "SFProDisplay-Bold": require("../../fonts/SF-Pro-Display-Bold.otf"),
+      //      "SFProDisplay-Semibold": require("../../fonts/SF-Pro-Display-Semibold.otf"),
+      //      "SFProDisplay-Regular": require("../../fonts/SF-Pro-Display-Regular.otf"),
+      //      "SFProDisplay-Light": require("../../fonts/SF-Pro-Display-Light.otf")
     });
     await Images.downloadAsync();
     await APIStore.load();

@@ -1,6 +1,11 @@
 /* @flow */
 import React, { Component } from "react";
-import { StyleSheet, View, ScrollView, KeyboardAvoidingView } from "react-native";
+import {
+  StyleSheet,
+  View,
+  ScrollView,
+  KeyboardAvoidingView
+} from "react-native";
 
 import { Container } from "../../../components/Organisms/Container";
 import { IconButton } from "../../../components/Molecules/IconButton";
@@ -11,7 +16,6 @@ import type { NavigationProps } from "../../../components/Type";
 type SignUpContainerProps = NavigationProps<*> & {
   children: React.ChildrenArray<React.Element<*>>
 };
-
 
 export default class SignUpContainer extends Component<SignUpContainerProps> {
   constructor(props) {
@@ -30,16 +34,17 @@ export default class SignUpContainer extends Component<SignUpContainerProps> {
 
     return (
       <Container withGutter={true} style={styles.container}>
-        <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+        <ScrollView
+          contentContainerStyle={styles.content}
+          showsVerticalScrollIndicator={false}
+        >
           <KeyboardAvoidingView behavior="padding" style={styles.innerContent}>
             <IconButton
               name="ios-arrow-back-outline"
               contrast={true}
               onPress={this.Back}
             />
-            <View>
-              {children}
-            </View>
+            <View>{children}</View>
             <View />
           </KeyboardAvoidingView>
         </ScrollView>

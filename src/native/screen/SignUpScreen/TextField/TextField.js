@@ -9,21 +9,23 @@ import { Field } from "../../../components/Molecules/Field";
 import { Theme } from "../../../components/Theme";
 
 interface BaseFieldProps {
-  label: string,
-  contrast?: boolean
+  label: string;
+  contrast?: boolean;
 }
 
 interface TextFieldProps extends BaseFieldProps {
-  textInputRef?: (TextInput) => void,
-  toogleSecureEntry?: boolean
+  textInputRef?: TextInput => void;
+  toogleSecureEntry?: boolean;
 }
 
 type TextFieldState = {
   secureTextEntry: boolean
 };
 
-
-export default class TextField extends Component<TextFieldProps, TextFieldState> {
+export default class TextField extends Component<
+  TextFieldProps,
+  TextFieldState
+> {
   constructor(props) {
     super(props);
 
@@ -44,15 +46,24 @@ export default class TextField extends Component<TextFieldProps, TextFieldState>
     const { label, contrast, textInputRef, toggleSecureEntry } = this.props;
     const { secureTextEntry } = this.state;
     const right = { label: "Show", onPress: this.toggleSecureTextEntry };
-    const keysToFilter = ["contrast", "label", "textInputRef", "toggleSecureEntry"];
-    const props = _.pickBy(this.props, (value, key) => keysToFilter.indexOf(key) === -1);
+    const keysToFilter = [
+      "contrast",
+      "label",
+      "textInputRef",
+      "toggleSecureEntry"
+    ];
+    const props = _.pickBy(
+      this.props,
+      (value, key) => keysToFilter.indexOf(key) === -1
+    );
     const inputStyle = [styles.textInput];
-
 
     if (contrast) inputStyle.push(styles.textInputContrast);
 
     return (
-      <Field {...{ label, contrast, right: toggleSecureEntry ? right : undefined }}>
+      <Field
+        {...{ label, contrast, right: toggleSecureEntry ? right : undefined }}
+      >
         <TextInput
           secureTextEntry={secureTextEntry}
           ref={textInputRef}
@@ -65,7 +76,6 @@ export default class TextField extends Component<TextFieldProps, TextFieldState>
     );
   }
 }
-
 
 /**
  * custom styles

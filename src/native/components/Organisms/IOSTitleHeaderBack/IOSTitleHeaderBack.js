@@ -15,13 +15,20 @@ type IOSTitleHeaderBackProps = NavigationBarProps<*> & {
   onPress: () => void
 };
 
-export default class IOSTitleHeaderBack extends Component<IOSTitleHeaderBackProps> {
+export default class IOSTitleHeaderBack extends Component<
+  IOSTitleHeaderBackProps
+> {
   render() {
     const { backgroundColor, onPress, iconStyle } = this.props;
 
     return (
       <Animated.View style={[styles.header, { backgroundColor }]}>
-        <IconButton name="ios-arrow-back-outline" onPress={onPress} animated={true} {...{ iconStyle }} />
+        <IconButton
+          name="ios-arrow-back-outline"
+          onPress={onPress}
+          animated={true}
+          {...{ iconStyle }}
+        />
       </Animated.View>
     );
   }
