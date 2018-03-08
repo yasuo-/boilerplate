@@ -43,9 +43,8 @@ export default class Explore extends Component<ScreenProps<>> {
         <CitiesContents onPress={this.Lists} />
         {_.map(APIStore.homesByCities(), (homes, city) => (
           <HomeContents
+            key={city}
             city={city}
-            homes={homes}
-            homeDetails={this.Details}
           >
             {homes.map(home => (
               <HomeCard

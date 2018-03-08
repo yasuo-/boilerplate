@@ -15,19 +15,19 @@ export default class SavedCard extends Component<SavedCardProps> {
   constructor(props) {
     super(props);
 
-    this.saved = this.saved.bind(this);
+    this.savedList = this.savedList.bind(this);
   }
 
   // @autobind
-  saved() {
-    this.props.navigation.navigate("SavedHomes");
+  savedList() {
+    this.props.navigation.navigate("SavedList");
   }
 
   render() {
-    const { label, image } = this.props;
+    const { label, image, onPress } = this.props;
 
     return (
-      <TouchableWithoutFeedback onPress={this.saved}>
+      <TouchableWithoutFeedback onPress={onPress}>
         <SavedCardComponents label={label} image={image} />
       </TouchableWithoutFeedback>
     );

@@ -9,7 +9,6 @@ import type { BaseProps } from "../../Types";
 
 type HomeContentsProps = BaseProps & {
   city: string,
-  homes: any,
   children: React.ChildrenArray<React.Element<*>>
 };
 
@@ -19,10 +18,10 @@ export default class HomeContents extends Component<HomeContentsProps> {
   }
 
   render() {
-    const { city, homes, homeDetails, children } = this.props;
+    const { key, city, children } = this.props;
 
     return (
-      <View key={city}>
+      <View key={`${key}`}>
         <Text type="header2" gutterBottom={true} style={styles.text}>
           {city}
         </Text>

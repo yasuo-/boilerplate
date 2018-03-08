@@ -1,8 +1,8 @@
 {
   "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 20003,
+  "packagerPort": 19002,
+  "packagerPid": 47635,
   "expoServerNgrokUrl": "https://2m-94d.yasuo.boilerplate.exp.direct",
   "packagerNgrokUrl": "https://packager.2m-94d.yasuo.boilerplate.exp.direct",
-  "ngrokPid": 20054
+  "ngrokPid": 43967
 }

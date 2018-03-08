@@ -49,7 +49,7 @@ export default class SignUpEmail extends Component<NavigationProps<*>> {
           <Text style={styles.text}>
             私はパートナーからのマーケティングとコミュニケーションを受けます。
           </Text>
-          <Switch onTintColor={Theme.palette.primary} />
+          <Switch />
         </View>
         <SubmitButton onPress={this.next} />
       </SignUpContainer>

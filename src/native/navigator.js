@@ -16,6 +16,7 @@ import ExploreScreen from "./screen/ExploreScreen/Explore";
 import ListsScreen from "./screen/ExploreScreen/Lists";
 import DetailScreen from "./screen/ExploreScreen/Detail";
 import SavedScreen from "./screen/SavedScreen/Saved";
+import SavedListScreen from "./screen/SavedScreen/SavedList";
 import PlansScreen from "./screen/PlansScreen";
 import InboxScreen from "./screen/InboxScreen/Inbox";
 import ProfileScreen from "./screen/ProfileScreen/Profile";
@@ -135,7 +136,8 @@ const InboxNavigator = StackNavigator(
  */
 const SavedNavigator = StackNavigator(
   {
-    Saved: { screen: SavedScreen }
+    Saved: { screen: SavedScreen },
+    SavedList: { screen: SavedListScreen }
   },
   StackNavigatorOptions
 );
@@ -157,9 +159,9 @@ const ProfileNavigator = StackNavigator(
 const HomeNavigator = TabNavigator(
   {
     Explore: { screen: ExploreNavigator },
-    Saved: { screen: SavedScreen },
+    Saved: { screen: SavedNavigator },
     Plans: { screen: PlansScreen },
-    Inbox: { screen: InboxScreen },
+    Inbox: { screen: InboxNavigator },
     Profile: { screen: ProfileNavigator }
   },
   {
