@@ -34,8 +34,9 @@ export default class SignupName extends Component<NavigationProps<*>> {
 
   // @autobind
   next() {
-    const { navigation } = this.props;
-    this.props.navigation.navigate(navigation, "SignUpEmail");
+    // const { navigation } = this.props;
+    // this.props.navigation.navigate(navigation, "SignUpEmail");
+    this.props.navigation.navigate("SignUpEmail");
   }
 
   render() {
@@ -43,7 +44,7 @@ export default class SignupName extends Component<NavigationProps<*>> {
 
     return (
       <SignUpContainer {...{ navigation }}>
-        <Text type="header2" style={styles.text} gutterBottom={true}>
+        <Text type="header2" style={styles.header} gutterBottom={true}>
           your name ?
         </Text>
         <TextField

@@ -1,10 +1,12 @@
 /* @flow */
 import React, { Component } from "react";
-import { TextInput } from "react-native";
+import { StyleSheet, TextInput } from "react-native";
 import autobind from "autobind-decorator";
 import * as _ from "lodash";
 
 import { Field } from "../../../components/Molecules/Field";
+
+import { Theme } from "../../../components/Theme";
 
 interface BaseFieldProps {
   label: string,
@@ -63,3 +65,16 @@ export default class TextField extends Component<TextFieldProps, TextFieldState>
     );
   }
 }
+
+
+/**
+ * custom styles
+ */
+const styles = StyleSheet.create({
+  textInput: {
+    ...Theme.typography.regular
+  },
+  textInputContrast: {
+    color: "white"
+  }
+});

@@ -2,11 +2,11 @@
 import React, { Component } from "react";
 import { StyleSheet, View, ScrollView, KeyboardAvoidingView } from "react-native";
 
-import { Container } from "../components/Organisms/Container";
-import { IconButton } from "../../components/Molecules/IconButton";
+import { Container } from "../../../components/Organisms/Container";
+import { IconButton } from "../../../components/Molecules/IconButton";
 
-import { Theme } from "../../components/Theme";
-import type { NavigationProps } from "../components/Type";
+import { Theme } from "../../../components/Theme";
+import type { NavigationProps } from "../../../components/Type";
 
 type SignUpContainerProps = NavigationProps<*> & {
   children: React.ChildrenArray<React.Element<*>>

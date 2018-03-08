@@ -1,12 +1,12 @@
 /** @flow */
 
 import React, { Component } from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import autobind from "autobind-decorator";
 
 import { Text } from "../../components/Atom/Text";
 import { SignUpContainer } from "./SignUpContainer";
-import { Switch } from "../../components/Atom/Switch";
+import { Switch } from "../../containers/Switch";
 import { SubmitButton } from "../../components/Molecules/SubmitButton";
 import { TextField } from "./TextField";
 
@@ -22,8 +22,9 @@ export default class SignUpEmail extends Component<NavigationProps<*>> {
 
   // @autobind
   next() {
-    const { navigation } = this.props;
-    this.props.navigation.navigate(navigation, "SignUpPassword");
+    // const { navigation } = this.props;
+    // this.props.navigation.navigate(navigation, "SignUpPassword");
+    this.props.navigation.navigate("SignUpPassword");
   }
 
   render() {
@@ -48,7 +49,7 @@ export default class SignUpEmail extends Component<NavigationProps<*>> {
           <Text style={styles.text}>
             私はパートナーからのマーケティングとコミュニケーションを受けます。
           </Text>
-          <Switch />
+          <Switch onTintColor={Theme.palette.primary} />
         </View>
         <SubmitButton onPress={this.next} />
       </SignUpContainer>

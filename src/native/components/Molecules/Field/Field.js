@@ -68,11 +68,5 @@ const styles = StyleSheet.create({
   },
   labelContrast: {
     color: "white"
-  },
-  textInput: {
-    ...Theme.typography.regular
-  },
-  textInputContrast: {
-    color: "white"
   }
 });

@@ -20,8 +20,9 @@ export default class SignUpPassword extends Component<NavigationProps<*>> {
 
   // @autobind
   next() {
-    const { navigation } = this.props;
-    this.props.navigation.navigate(navigation, "Home");
+    // const { navigation } = this.props;
+    // this.props.navigation.navigate(navigation, "Home");
+    this.props.navigation.navigate("Home");
   }
 
   render() {

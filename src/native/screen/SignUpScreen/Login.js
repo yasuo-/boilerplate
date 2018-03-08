@@ -34,8 +34,9 @@ export default class Login extends Component<NavigationProps<*>> {
 
   // @autobind
   login() {
-    const { navigation } = this.props;
-    this.props.navigation.navigate(navigation, "Home");
+    // const { navigation } = this.props;
+    // this.props.navigation.navigate(navigation, "Home");
+    this.props.navigation.navigate("Home");
   }
 
   render() {
