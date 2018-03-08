@@ -20,6 +20,10 @@ import PlansScreen from "./screen/PlansScreen";
 import InboxScreen from "./screen/InboxScreen/Inbox";
 import ProfileScreen from "./screen/ProfileScreen/Profile";
 import SettingsScreen from "./screen/ProfileScreen/Settings";
+import LoginScreen from "./screen/SignUpScreen/Login";
+import SignUpNameScreen from "./screen/SignUpScreen/SignUpName";
+import SignUpEmailScreen from "./screen/SignUpScreen/SignUpEmail";
+import SignUpPasswordScreen from "./screen/SignUpScreen/SignUpPassword";
 
 import { Theme } from "./components/Theme";
 import type { NavigationProps } from "./components/Type";
@@ -176,7 +180,11 @@ const HomeNavigator = TabNavigator(
 const RootStack = StackNavigator(
   {
     Welcome: { screen: WelcomeScreen },
-    Home: { screen: HomeNavigator }
+    Home: { screen: HomeNavigator },
+    Login: { screen: LoginScreen },
+    SignUp: { screen: SignUpNameScreen },
+    SignUpEmail: { screen: SignUpEmailScreen },
+    SignUpPassword: { screen: SignUpPasswordScreen }
   },
   StackNavigatorOptions
 );

@@ -11,61 +11,40 @@ import { TextField } from "./TextField";
 
 import type { NavigationProps } from "../../components/Types";
 
-export default class Login extends Component<NavigationProps<*>> {
+export default class SignUpPassword extends Component<NavigationProps<*>> {
   constructor(props) {
     super(props);
 
-    this.setPassword = this.setPassword.bind(this);
-    this.goPassword = this.goPassword.bind(this);
-    this.login = this.login.bind(this);
-  }
-
-  password: TextInput;
-
-  // @autobind
-  setPassword(input: TextInput) {
-    this.password = input;
+    this.next = this.next.bind(this);
   }
 
   // @autobind
-  goPassword() {
-    this.password.focus();
-  }
-
-  // @autobind
-  login() {
+  next() {
     const { navigation } = this.props;
     this.props.navigation.navigate(navigation, "Home");
   }
 
   render() {
     const { navigation } = this.props;
+
     return (
       <SignUpContainer {...{ navigation }}>
-        <Text type="header2" style={styles.header} gutterBottom={true}>
-          Login
+        <Text type="header2" style={styles.text} gutterBottom={true}>
+          Create a password
+        </Text>
+        <Text gutterBottom={true} style={styles.text}>
+          パスワードには少なくとも1つの記号が含まれ、8文字以上の長さである必要があります。
         </Text>
         <TextField
-          label="email"
-          keyboardType="email-address"
+          label="Password"
           contrast={true}
           autoFocus={true}
           autoCapitalize="none"
           autoCorrect={false}
-          returnKeyType="next"
-          onSubmitEditing={this.goPassword}
-        />
-        <TextField
-          toggleSecureEntry={true}
-          label="password"
-          contrast={true}
-          autoCapitalize="none"
-          autoCorrect={false}
           returnKeyType="go"
-          onSubmitEditing={this.setPassword}
-          onSubmitEditing={this.login}
+          onSubmitEditing={this.next}
         />
-        <SubmitButton onPress={this.login} />
+        <SubmitButton onPress={this.next} />
       </SignUpContainer>
     );
   }
@@ -75,11 +54,7 @@ export default class Login extends Component<NavigationProps<*>> {
  * custom styles
  */
 const styles = StyleSheet.create({
-  header: {
-    color: "white"
-  },
   text: {
-    color: "white",
-    textAlign: "right"
+    color: "white"
   }
 });

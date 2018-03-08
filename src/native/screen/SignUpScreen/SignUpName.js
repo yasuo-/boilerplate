@@ -11,61 +11,61 @@ import { TextField } from "./TextField";
 
 import type { NavigationProps } from "../../components/Types";
 
-export default class Login extends Component<NavigationProps<*>> {
+export default class SignupName extends Component<NavigationProps<*>> {
   constructor(props) {
     super(props);
 
-    this.setPassword = this.setPassword.bind(this);
-    this.goPassword = this.goPassword.bind(this);
-    this.login = this.login.bind(this);
+    this.setLastName = this.setLastName.bind(this);
+    this.goLastName = this.goLastName.bind(this);
+    this.next = this.next.bind(this);
   }
 
-  password: TextInput;
+  lastName: TextInput;
 
   // @autobind
-  setPassword(input: TextInput) {
-    this.password = input;
-  }
-
-  // @autobind
-  goPassword() {
-    this.password.focus();
+  setLastName(input: TextInput) {
+    this.lastName = input;
   }
 
   // @autobind
-  login() {
+  goLastName() {
+    this.lastName.focus();
+  }
+
+  // @autobind
+  next() {
     const { navigation } = this.props;
-    this.props.navigation.navigate(navigation, "Home");
+    this.props.navigation.navigate(navigation, "SignUpEmail");
   }
 
   render() {
     const { navigation } = this.props;
+
     return (
       <SignUpContainer {...{ navigation }}>
-        <Text type="header2" style={styles.header} gutterBottom={true}>
-          Login
+        <Text type="header2" style={styles.text} gutterBottom={true}>
+          your name ?
         </Text>
         <TextField
-          label="email"
-          keyboardType="email-address"
+          label="First Name"
           contrast={true}
           autoFocus={true}
           autoCapitalize="none"
           autoCorrect={false}
           returnKeyType="next"
-          onSubmitEditing={this.goPassword}
+          onSubmitEditing={this.goLastName}
         />
         <TextField
           toggleSecureEntry={true}
-          label="password"
+          label="Last Name"
           contrast={true}
           autoCapitalize="none"
           autoCorrect={false}
           returnKeyType="go"
-          onSubmitEditing={this.setPassword}
-          onSubmitEditing={this.login}
+          onSubmitEditing={this.setLastName}
+          onSubmitEditing={this.next}
         />
-        <SubmitButton onPress={this.login} />
+        <SubmitButton onPress={this.next} />
       </SignUpContainer>
     );
   }
