@@ -1,15 +1,11 @@
 /* @flow */
+
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 import { Theme } from "../../Theme";
-import type { BaseProps } from "../components/Type";
-
-type VerticalSectionProps = BaseProps & {
-  children: React.ChildrenArray<React.Element<*>>
-};
-
-export default class VerticalSection extends Component<VerticalSectionProps> {
+export default class VerticalSection extends Component<> {
   render() {
+    const { children } = this.props;
     return <View style={styles.container}>{children}</View>;
   }
 }

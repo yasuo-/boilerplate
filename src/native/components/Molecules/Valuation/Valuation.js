@@ -8,16 +8,16 @@ import { Text } from "../../Atom/Text";
 import { Theme } from "../../Theme";
 import type { BaseProps } from "../../Types";
 
-type Ratings = {
+type ValuationProps = {
   value: number,
   votes: number
 };
 
 /**
- * Ratings
- * 評価components
+ * ValuationProps
+ * 評価のcomponents
  */
-export default class Ratings extends Component<RatingsProps> {
+export default class Valuation extends Component<ValuationProps> {
   render() {
     const { votes, value } = this.props;
     const filledStars = value - value % 1;
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     borderColor: Theme.palette.lightGray,
     borderBottomWidth: 1,
     paddingBottom: Theme.spacing.small,
+    marginTop: Theme.spacing.small,
     marginBottom: Theme.spacing.small
   },
   text: {

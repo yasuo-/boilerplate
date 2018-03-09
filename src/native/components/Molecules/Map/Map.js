@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { StyleSheet, Dimensions } from "react-native";
 import { MapView } from "expo";
 
-type MapViewProps = {
+type MapProps = {
   id: string,
   title: string,
   latitude: string,
@@ -13,7 +13,7 @@ type MapViewProps = {
   longitudeDelta: number
 };
 
-export default class MapView extends Component<MapViewProps> {
+export default class Map extends Component<MapProps> {
   render() {
     const {
       id,
@@ -24,7 +24,6 @@ export default class MapView extends Component<MapViewProps> {
       longitudeDelta,
       style
     } = this.props;
-    const home = APIStore.home(id);
 
     return (
       <MapView

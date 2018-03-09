@@ -7,12 +7,11 @@ import Swiper from "react-native-swiper";
 
 import APIStore from "../../../../api";
 
-import { VerticalSection } "../../Atom/VerticalSection";
 import { Text } from "../../Atom/Text";
 import { Avatar } from "../../Atom/Avatar";
 import { LoadingIndicator } from "../../Molecules/LoadingIndicator";
-import { Ratings } from "../../Molecules/Ratings";
-import { MapView } from "../../Molecules/MapView";
+import { Valuation } from "../../Molecules/Valuation";
+import { Map } from "../../Molecules/Map";
 import { Theme } from "../../Theme";
 import type { BaseProps } from "../../Types";
 
@@ -27,30 +26,15 @@ export default class DetailContents extends Component<DetailContentsProps> {
   }
 
   render() {
-    const { navigation } = this.props;
-    const { id } = navigation.state.params;
+    const {
+      navigation,
+      onScroll,
+      id,
+      loading,
+      scrollY,
+      picture
+    } = this.props;
     const home = APIStore.home(id);
-    const { scrollY, loading } = this.state;
-    const onScroll = Animated.event([
-      {
-        nativeEvent: {
-          contentOffset: {
-            y: scrollY
-          }
-        }
-      }
-    ]);
-    const threshold = height - 57 - Constants.statusBarHeight;
-    const backgroundColor = scrollY.interpolate({
-      inputRange: [0, threshold - 5, threshold],
-      outputRange: ["transparent", "transparent", "white"]
-    });
-    const iconStyle = {
-      color: scrollY.interpolate({
-        inputRange: [0, threshold - 5, threshold],
-        outputRange: ["white", "white", Theme.typography.color]
-      })
-    };
 
     return (
       <ScrollView style={styles.flex} scrollEventThrottle={1} {...{ onScroll }}>
@@ -62,7 +46,7 @@ export default class DetailContents extends Component<DetailContentsProps> {
             ))}
           </Swiper>
         )}
-        <VerticalSection style={styles.container}>
+        <View style={styles.container}>
           <Text type="header2" gutterBottom={true}>
             {home.title}
           </Text>
@@ -76,10 +60,10 @@ export default class DetailContents extends Component<DetailContentsProps> {
             <Avatar uri={home.host.picture} />
           </View>
           <Text>{`${home.price.amount} ${home.price.currency} per night`}</Text>
-          <Ratings value={home.rating.value} votes={home.rating.votes} />
+          <Valuation value={home.rating.value} votes={home.rating.votes} />
           <Text gutterBottom={true}>{home.description}</Text>
-        </VerticalSection>
-        <MapView
+        </View>
+        <Map
           id={id}
           title={home.location.address}
           latitude={home.location.lat}
@@ -88,7 +72,7 @@ export default class DetailContents extends Component<DetailContentsProps> {
           longitudeDelta={0.0022}
           style={styles.map}
         />
-      </ScrollView>
+      </ScrollView >
     );
   }
 }
@@ -109,6 +93,9 @@ const styles = StyleSheet.create({
   host: {
     flexDirection: "row",
     justifyContent: "space-between"
+  },
+  container: {
+    padding: Theme.spacing.base
   },
   map: {
     height: width * 0.62,
