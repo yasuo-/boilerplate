@@ -63,38 +63,38 @@ const theme: Theme = {
     light: "SFProDisplay-Light",
     header1: {
       fontSize: 44,
-      lineHeight: 56
-      // fontFamily: "SFProDisplay-Bold"
+      lineHeight: 56,
+      fontFamily: "SFProDisplay-Bold"
     },
     header2: {
       fontSize: 32,
-      lineHeight: 36
-      //  fontFamily: "SFProDisplay-Light"
+      lineHeight: 36,
+      fontFamily: "SFProDisplay-Light"
     },
     header3: {
       fontSize: 24,
-      lineHeight: 28
-      //   fontFamily: "SFProDisplay-Light"
+      lineHeight: 28,
+      fontFamily: "SFProDisplay-Light"
     },
     large: {
       fontSize: 19,
-      lineHeight: 24
-      //  fontFamily: "SFProDisplay-Semibold"
+      lineHeight: 24,
+      fontFamily: "SFProDisplay-Semibold"
     },
     regular: {
       fontSize: 17,
-      lineHeight: 22
-      //  fontFamily: "SFProDisplay-Light"
+      lineHeight: 22,
+      fontFamily: "SFProDisplay-Light"
     },
     small: {
       fontSize: 14,
-      lineHeight: 18
-      //  fontFamily: "SFProDisplay-Light"
+      lineHeight: 18,
+      fontFamily: "SFProDisplay-Light"
     },
     micro: {
       fontSize: 8,
-      lineHeight: 8
-      //  fontFamily: "SFProDisplay-Bold"
+      lineHeight: 8,
+      fontFamily: "SFProDisplay-Bold"
     }
   },
   spacing: {
