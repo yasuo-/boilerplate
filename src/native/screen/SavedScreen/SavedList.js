@@ -39,8 +39,8 @@ export default class SavedList extends Component<ScreenProps<>> {
   }
 
   // @autobind
-  homeDetails(id: string) {
-    this.props.navigation.navigate("HomeOverview", { id });
+  Details(id: string) {
+    this.props.navigation.navigate("Detail", { id });
   }
 
   componentWillMount() {
@@ -77,7 +77,7 @@ export default class SavedList extends Component<ScreenProps<>> {
               {homes.map(home => (
                 <HomeCard
                   key={home.id}
-                  onPress={this.homeDetails}
+                  onPress={this.Details}
                   {...{ home }}
                 />
               ))}

@@ -1,36 +1,61 @@
 /** @flow */
 
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  View,
-  ScrollView,
-  Image,
-  Dimensions,
-  Animated,
-  Text,
-  Button
-} from "react-native";
 
-import HomeContainer from "../HomeScreen";
+import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
+import autobind from "autobind-decorator";
+import * as _ from "lodash";
+
+import APIStore from "../../../api";
+
 import SectionContainer from "../SectionScreen";
-import { IOSTitleHeader } from "../../components/Organisms/IOSTitleHeader";
+import { NavigationBar } from "../../components/Organisms/NavigationBar";
+import { VerticalContents } from "../../components/Organisms/VerticalContents";
+import { HomeCard } from "./HomeCard";
 
-import type { ScreenProps } from "../Types";
+import type { ScreenProps } from "../../components/Types";
 
 export default class Lists extends Component<ScreenProps<>> {
+  constructor(props) {
+    super(props);
+
+    this.Details = this.Details.bind(this);
+    this.back = this.back.bind(this);
+  }
+
+  // @autobind
+  Details(id: string) {
+    this.props.navigation.navigate("Detail", { id });
+  }
+
+  // @autobind
+  back() {
+    this.props.navigation.goBack();
+  }
+
   render() {
     return (
-      <HomeContainer>
-        <IOSTitleHeader title={"list"} />
+      <Container>
+        <Header
+          backgroundColor={"white"}
+        >
+          <Left>
+          </Left>
+          <Body>
+            <Title>title</Title>
+          </Body>
+          <Right />
+        </Header >
         <SectionContainer withGutter={true}>
-          <Text>list page</Text>
-          <Button
-            title="Go to Home"
-            onPress={() => this.props.navigation.navigate("Home")}
-          />
+          {_.map(APIStore.homesByCities(), (homes, city) => (
+            <VerticalContents key={city} contentsTitle={city}>
+              {homes.map(home => (
+                <HomeCard key={home.id} onPress={this.Details} {...{ home }} />
+              ))}
+            </VerticalContents>
+          ))}
         </SectionContainer>
-      </HomeContainer>
+      </Container>
     );
   }
 }

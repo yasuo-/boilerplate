@@ -1,62 +1,41 @@
 /** @flow */
 
 import React, { Component } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
 import autobind from "autobind-decorator";
+import { Constants } from "expo";
 
+/*
 import { IosArrowBackOutline } from "../../Molecules/IconButton";
 import { Text } from "../../Atom/Text";
 import { Theme } from "../../Theme";
+*/
 import type { NavigatioProps } from "../../Types";
 
 type NavigationBarProps = NavigationBarProps<*> & {
-  title: string
+  title: string,
+  onPress: () => void
 };
 
 export default class NavigationBar extends Component<NavigationBarProps> {
-  constructor(props) {
-    super(props);
-
-    this.back = this.back.bind(this);
-  }
-
-  // @autobind
-  back() {
-    this.props.navigation.goBack();
-  }
-
   render() {
-    const { title } = this.props;
+    const { title, onPress } = this.props;
 
     return (
-      <View style={styles.header}>
-        <IosArrowBackOutline
-          name="ios-arrow-back-outline"
-          onPress={this.back}
-          style={styles.headerSide}
-        />
-        <Text type="large">{title}</Text>
-        <View style={styles.headerSide} />
-      </View>
+      <Header
+        backgroundColor={"white"}
+      >
+        <Left>
+          <Button transparent>
+            <Icon name='arrow-back' />
+          </Button>
+        </Left>
+        <Body>
+          <Title>{title}</Title>
+        </Body>
+        <Right />
+      </Header >
     );
   }
 }
-
-/**
- * custom style
- */
-const styles = StyleSheet.create({
-  header: {
-    height: 57,
-    borderColor: Theme.palette.lightGray,
-    borderBottomWidth: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center"
-  },
-  headerSide: {
-    marginLeft: Theme.spacing.base,
-    marginRight: Theme.spacing.base,
-    width: 50
-  }
-});
