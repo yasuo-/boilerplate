@@ -6,7 +6,8 @@ import { StackNavigator, TabNavigator, TabBarBottom } from "react-navigation";
 import { Font, AppLoading } from "expo";
 
 import APIStore from "../api";
-import Images from "../assets/Images/index";
+import Images from "../assets/images/index";
+import Fonts from "../assets/fonts/index";
 import getTheme from "../../native-base-theme/components";
 import common from "../../native-base-theme/variables/commonColor";
 import RootStack from "./navigator";
@@ -14,6 +15,8 @@ import RootStack from "./navigator";
 interface AppState {
   ready: boolean;
 }
+
+const cacheFonts = (fonts) => (fonts.map(font => Font.loadAsync(font)))
 
 export default class App extends Component<{}, AppState> {
   constructor(props) {
@@ -25,28 +28,25 @@ export default class App extends Component<{}, AppState> {
     this.loadStaticResources();
   }
 
-  componentWillMount() {
-    //this.loadStaticResources();
-  }
-
   async loadStaticResources(): Promise<void> {
-    await Font.loadAsync({
-      "SFProDisplay-Bold": require("../../fonts/SF-Pro-Display-Bold.otf"),
-      "SFProDisplay-Semibold": require("../../fonts/SF-Pro-Display-Semibold.otf"),
-      "SFProDisplay-Regular": require("../../fonts/SF-Pro-Display-Regular.otf"),
-      "SFProDisplay-Light": require("../../fonts/SF-Pro-Display-Light.otf"),
-      'Roboto': require('native-base/Fonts/Roboto.ttf'),
-      'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf')
-    });
+    const fontAssets = cacheFonts(Fonts);
+    await Promise.all([...fontAssets]);
     await Images.downloadAsync();
     await APIStore.load();
-    this.setState({ ready: true });
+    // this.setState({ ready: true });
   }
 
   render() {
     return (
       <StyleProvider style={getTheme(common)}>
-        {this.state.ready ? <RootStack /> : <AppLoading />}
+        {this.state.ready
+          ? <RootStack />
+          : <AppLoading
+            startAsync={this._loadAssetsAsync}
+            onFinish={() => this.setState({ ready: true })}
+            onError={console.warn}
+          />
+        }
       </StyleProvider>
     );
   }

@@ -2,8 +2,17 @@
 
 import React, { Component } from "react";
 import { StyleSheet, View, TouchableOpacity } from "react-native";
+import { connect } from 'react-redux';
 import autobind from "autobind-decorator";
+import { Facebook } from 'expo';
 
+// data
+import * as actions from "../../../redux/actions/authActions";
+import * as c from "../../../config/constants";
+import { permissions } from "../../../config";
+const { signInWithFacebook } = actions;
+
+// component
 import { Text } from "../../components/Atom/Text";
 import { Container } from "../../components/Organisms/Container";
 import { Button } from "../../components/Atom/Button";
@@ -11,13 +20,16 @@ import { Button } from "../../components/Atom/Button";
 import { Theme } from "../../components/Theme";
 import type { ScreenProps } from "../../components/Types";
 
-export default class Welcome extends Component<ScreenProps<>> {
+class Welcome extends Component<ScreenProps<>> {
   constructor(props) {
     super(props);
 
     this.signUp = this.signUp.bind(this);
     this.login = this.login.bind(this);
     this.skip = this.skip.bind(this);
+    this.onSuccess = this.onSuccess.bind(this);
+    this.onError = this.onError.bind(this);
+    this.onSignInWithFacebook = this.onSignInWithFacebook.bind(this);
   }
 
   // @autobind
@@ -30,9 +42,30 @@ export default class Welcome extends Component<ScreenProps<>> {
     this.props.navigation.navigate("Login");
   }
 
+  // @autobind
   skip() {
     this.props.navigation.navigate("Home");
   }
+
+  // @autobind
+  onSuccess({ exists, user }) {
+    if (exists) Actions.Main()
+    else Actions.CompleteProfile({ user })
+  }
+
+  // @autobind
+  onError(error) {
+    alert(error.message);
+  }
+
+  // @autobind
+  async onSignInWithFacebook() {
+    const options = { permissions };
+    const { type, token } = await Facebook.logInWithReadPermissionsAsync(c.FACEBOOK_APP_ID, options);
+
+    if (type === 'success') tihs.props.signInWithFacebook(token, this.onSuccess, this.onError)
+  }
+
 
   render() {
     return (
@@ -52,6 +85,12 @@ export default class Welcome extends Component<ScreenProps<>> {
           full={true}
           contrast={true}
           onPress={this.signUp}
+        />
+        <Button
+          label="SIGN UP WITH FACEBOOK"
+          full={true}
+          contrast={true}
+          onPress={this.onSignInWithFacebook}
         />
         <TouchableOpacity onPress={this.skip} underlayColor="white">
           <Text type="header4" style={styles.text} gutterBottom={true}>
@@ -79,3 +118,5 @@ const styles = StyleSheet.create({
     textAlign: "right"
   }
 });
+
+export default connect(null, { signInWithFacebook })(Welcome);
