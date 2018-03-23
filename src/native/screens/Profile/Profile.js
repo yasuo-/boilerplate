@@ -26,12 +26,13 @@ export class Profile extends Component {
     return (
       <ScrollView style={styles.root}>
         <View style={[styles.header, styles.bordered]}>
-          <Avatar img={this.user.photo} rkType='big' />
+          <RkText rkType='header2'>{name}</RkText><RkText rkType='header2'>{name}</RkText>
+          <Avatar img={{ uri: images }} rkType='big' />
           <RkText rkType='header2'>{name}</RkText>
         </View>
         <View style={[styles.userInfo, styles.bordered]}>
           <View style={styles.section}>
-            <RkText rkType='header3' style={styles.space}>{this.user.postCount}</RkText>
+            <RkText rkType='header3' style={styles.space}>postCount</RkText>
             <RkText rkType='secondary1 hintColor'>Posts</RkText>
           </View>
           <View style={styles.section}>
@@ -39,7 +40,7 @@ export class Profile extends Component {
             <RkText rkType='secondary1 hintColor'>Followers</RkText>
           </View>
           <View style={styles.section}>
-            <RkText rkType='header3' style={styles.space}>{this.user.followingCount}</RkText>
+            <RkText rkType='header3' style={styles.space}>followingCount</RkText>
             <RkText rkType='secondary1 hintColor'>Following</RkText>
           </View>
         </View>

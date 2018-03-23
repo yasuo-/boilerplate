@@ -18,7 +18,7 @@ const cacheFonts = (fonts) => (fonts.map(font => Font.loadAsync(font)))
 export default class App extends Component<{}, AppState> {
   constructor(props) {
     super(props);
-    this.state = { ready: false };
+    this.state = { ready: true };
   }
 
   componentDidMount() {
@@ -28,6 +28,7 @@ export default class App extends Component<{}, AppState> {
   async loadStaticResources(): Promise<void> {
     const fontAssets = cacheFonts(Fonts);
     await Promise.all([...fontAssets]);
+    this.setState({ ready: true })
   }
 
   render() {

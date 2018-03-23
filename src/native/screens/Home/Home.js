@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import {
-  ListView,
-  TouchableHighlight,
-  View,
-  StyleSheet
+  Image,
+  View
 } from 'react-native';
 import {
   RkText,
@@ -12,61 +10,33 @@ import {
 } from 'react-native-ui-kitten';
 
 export class Home extends Component {
-  static navigationOptions = {
-    title: 'Home'.toUpperCase()
-  };
 
   constructor(props) {
     super(props);
-
-    this.renderRow = this._renderRow.bind(this);
-  }
-
-  _renderRow(row) {
-    return (
-      <TouchableHighlight
-        style={styles.item}
-        activeOpacity={1}
-        onPress={() => {
-          this.props.navigation.navigate(1)
-        }}>
-        <View style={styles.container}>
-          <RkText style={styles.icon}
-            rkType='primary moon xxlarge'>icon</RkText>
-          <RkText>title</RkText>
-        </View>
-      </TouchableHighlight>
-    )
   }
 
   render() {
+    let image = RkTheme.current.name === 'light'
+      ? <Image source={{ uri: "http://placehold.jp/24/cccccc/ffffff/250x50.png?text=placehold.jp" }} style={{ width: 200, height: 400 }} />
+      : <Image source={{ uri: "http://placehold.jp/24/cccccc/ffffff/250x50.png?text=placehold.jp" }} style={{ width: 200, height: 400 }} />;
+
     return (
-      <ListView
-        style={styles.list}
-        renderRow={this.renderRow}
-      />
+      <View style={styles.screen}>
+        {image}
+        <RkText rkType='header2' style={styles.text}>Welcome to Home</RkText>
+      </View>
     )
   }
 }
 
 let styles = RkStyleSheet.create(theme => ({
-  item: {
-    height: 80,
-    justifyContent: 'center',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: theme.colors.border.base,
-    paddingHorizontal: 16
-  },
-  list: {
+  screen: {
     backgroundColor: theme.colors.screen.base,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1
   },
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  icon: {
-    width: 34,
-    textAlign: 'center',
-    marginRight: 16
+  text: {
+    marginTop: 20
   }
 }));
