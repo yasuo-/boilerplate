@@ -2,8 +2,12 @@
 import React, { Component } from "react";
 import { StyleSheet, View, TouchableWithoutFeedback } from "react-native";
 import { List, ListItem, Body } from "native-base";
+import { connect } from 'react-redux';
 import autobind from "autobind-decorator";
 import * as _ from "lodash";
+
+import * as actions from "../../../redux/actions/authActions";
+const { signOut } = actions;
 
 import APIStore from "../../../api";
 import HomeContainer from "../HomeScreen.js";
@@ -12,12 +16,12 @@ import { Theme } from "../../components";
 
 import type { ScreenProps } from "../../components/Types";
 
-export default class Profile extends Component<ScreenProps<>> {
+class Profile extends Component<ScreenProps<>> {
   constructor(props) {
     super(props);
 
     this.host = this.host.bind(this);
-    this.logOut = this.logOut.bind(this);
+    this.onLogOut = this.onLogOut.bind(this);
     this.settings = this.settings.bind(this);
   }
 
@@ -31,8 +35,17 @@ export default class Profile extends Component<ScreenProps<>> {
     this.props.navigation.navigate("Settings");
   }
 
+  onSuccess() {
+    Actions.reset("Auth")
+  }
+
+  onError(error) {
+    Alert.alert('Oops!', error.message);
+  }
+
   // @autobind
-  logOut(id: string) {
+  onLogOut(id: string) {
+    this.props.signOut(this.onSuccess.bind(this), this.onError.bind(this))
     this.props.navigation.navigate("Welcome", { id });
   }
 
@@ -58,7 +71,7 @@ export default class Profile extends Component<ScreenProps<>> {
               <Text>Settings</Text>
             </Body>
           </ListItem>
-          <ListItem onPress={this.logOut}>
+          <ListItem onPress={this.onLogOut}>
             <Body>
               <Text>Logout</Text>
             </Body>
@@ -84,3 +97,5 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end"
   }
 });
+
+export default connect(null, { signOut })(Profile);
