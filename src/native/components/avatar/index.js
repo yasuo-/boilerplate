@@ -8,7 +8,7 @@ import {
   RkText,
   RkTheme
 } from 'react-native-ui-kitten';
-import {FontAwesome} from '../../assets/icons';
+import { FontAwesome } from '../../assets/icons';
 
 export class Avatar extends RkComponent {
   componentName = 'Avatar';
@@ -24,11 +24,11 @@ export class Avatar extends RkComponent {
   }
 
   renderImg(styles) {
-    let {image, badge, badgeText} = styles;
+    let { image, badge, badgeText } = styles;
     return (
       <View>
-        <Image style={image} source={this.props.img}/>
-        { this.props.badge && this.renderBadge(badge, badgeText)}
+        <Image style={image} source={this.props.img} />
+        {this.props.badge && this.renderBadge(badge, badgeText)}
       </View>
     )
   }
@@ -52,8 +52,8 @@ export class Avatar extends RkComponent {
     }
 
     return (
-      <View style={[style, {backgroundColor}]}>
-        <RkText rkType='awesome' style={[textStyle, {color}]}>
+      <View style={[style, { backgroundColor }]}>
+        <RkText rkType='awesome' style={[textStyle, { color }]}>
           {symbol}
         </RkText>
       </View>
@@ -61,7 +61,7 @@ export class Avatar extends RkComponent {
   };
 
   render() {
-    let {container, ...other} = this.defineStyles();
+    let { container, ...other } = this.defineStyles();
     return (
       <View style={[container, this.props.style]}>
         {this.renderImg(other)}
