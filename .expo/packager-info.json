@@ -1,3 +1,8 @@
 {
-  "expoServerPort": null
+  "expoServerPort": 19000,
+  "expoServerNgrokUrl": "https://us-tfx.yasuo.boilerplate.exp.direct",
+  "packagerNgrokUrl": "https://packager.us-tfx.yasuo.boilerplate.exp.direct",
+  "ngrokPid": 95115,
+  "packagerPort": 19001,
+  "packagerPid": 94919
 }
