@@ -1,4 +1,6 @@
 import { combineReducers } from "redux";
+import * as authReducer from "./authReducer"
+import * as homeReducer from "./homeReducer"
 import * as types from "../actions/type";
 
 const init = (state = {}, action) => {
@@ -13,8 +15,14 @@ const init = (state = {}, action) => {
   }
 };
 
-const reducers = combineReducers({
-  init
+/**
+ * rootReducer
+ * Combine all the reducers
+ */
+const rootReducer = combineReducers({
+  init,
+  authReducer,
+  homeReducer
 });
 
-export default reducers;
+export default rootReducer;

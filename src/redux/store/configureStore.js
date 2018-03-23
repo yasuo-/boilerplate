@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import { createEpicMiddleware } from "redux-observable";
 // import createLogger from 'redux-logger'
 
@@ -9,10 +9,10 @@ import reducers from "../reducers/index";
 const epicMiddleware = createEpicMiddleware(rootEpic);
 const store = createStore(
   reducers,
-  applyMiddleware(
+  compose(applyMiddleware(
     // logger,
     epicMiddleware
-  )
+  ))
 );
 
 export default () => store;
