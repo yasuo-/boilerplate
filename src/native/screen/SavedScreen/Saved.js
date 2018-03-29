@@ -7,7 +7,7 @@ import SectionContainer from "../SectionScreen";
 import { IOSTitleHeader } from "../../components/Organisms/IOSTitleHeader";
 import { SavedCard } from "./SavedCard";
 
-import Images from "../../../assets/Images/index";
+import Images from "../../../assets/images/index";
 import type { ScreenProps } from "../Types";
 
 export default class Saved extends Component<ScreenProps<>> {

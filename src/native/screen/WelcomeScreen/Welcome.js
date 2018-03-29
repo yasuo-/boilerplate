@@ -1,16 +1,17 @@
 /** @flow */
 
 import React, { Component } from "react";
-import { StyleSheet, View, TouchableOpacity } from "react-native";
+import { StyleSheet, View, TouchableOpacity, } from "react-native";
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import autobind from "autobind-decorator";
 import { Facebook } from 'expo';
-
 // data
-import * as actions from "../../../redux/actions/authActions";
+import { signInWithFacebook } from "../../../redux/actions/authActions";
+// const { signInWithFacebook } = authActions
 import * as c from "../../../config/constants";
 import { permissions } from "../../../config";
-const { signInWithFacebook } = actions;
+import { decrement } from "../../../redux/actions/";
 
 // component
 import { Text } from "../../components/Atom/Text";
@@ -62,12 +63,18 @@ class Welcome extends Component<ScreenProps<>> {
   async onSignInWithFacebook() {
     const options = { permissions };
     const { type, token } = await Facebook.logInWithReadPermissionsAsync(c.FACEBOOK_APP_ID, options);
-
-    if (type === 'success') tihs.props.signInWithFacebook(token, this.onSuccess, this.onError)
+    if (type === 'success') {
+      this.props.decrement(token)
+      console.log(this.props.signInWithFacebook(token))
+      this.props.signInWithFacebook(token);
+      this.props.navigation.navigate("Home");
+    }
   }
 
 
   render() {
+    console.log("--------------");
+    console.log(this.props)
     return (
       <Container withGutter={true} style={styles.container}>
         <Text type="header2" style={styles.header} gutterBottom={true}>
@@ -119,4 +126,26 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect(null, { signInWithFacebook })(Welcome);
+/**
+ * mapDispatchToProps
+ * @param {*} dispatch 
+ */
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({
+    signInWithFacebook,
+    decrement
+  }, dispatch)
+)
+/**
+ * mapStateToProps
+ * @param {*} state
+ */
+const mapStateToProps = state => ({
+  authReducer: state.authReducer,
+  dataObj: state.count
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Welcome);

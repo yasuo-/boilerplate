@@ -4,6 +4,8 @@ import React, { Component } from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
 import autobind from "autobind-decorator";
 import * as _ from "lodash";
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import APIStore from "../../../api";
 import HomeContainer from "../HomeScreen";
@@ -17,7 +19,7 @@ import { HomeCard } from "./HomeCard";
 import { Theme } from "../../components/Theme";
 import type { ScreenProps } from "../../components/Types";
 
-export default class Explore extends Component<ScreenProps<>> {
+class Explore extends Component<ScreenProps<>> {
   constructor(props) {
     super(props);
 
@@ -36,6 +38,8 @@ export default class Explore extends Component<ScreenProps<>> {
   }
 
   render() {
+    console.log("--------------");
+    console.log(this.props)
     return (
       <HomeContainer>
         <IOSTitleHeader title={"Explore"} />
@@ -52,3 +56,24 @@ export default class Explore extends Component<ScreenProps<>> {
     );
   }
 }
+
+/**
+ * mapDispatchToProps
+ * @param {*} dispatch 
+ */
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({}, dispatch)
+)
+/**
+ * mapStateToProps
+ * @param {*} state
+ */
+const mapStateToProps = state => ({
+  authReducer: state.authReducer,
+  authTokens: state.authTokens
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Explore);

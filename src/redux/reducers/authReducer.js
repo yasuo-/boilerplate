@@ -9,10 +9,11 @@ let initialState = { isLoggedIn: false, user: null };
  * @param {*} state 
  * @param {*} action 
  */
-const authReducer = (state = initialState, action) => {
+export const isLogin = (state = initialState, action) => {
   switch (action.type) {
     case t.LOGGED_IN:
-      const user = action.payload;
+      console.log("sssss")
+      const user = action.payload//.user;
       // Save token and data to Asyncstorage
       AsyncStorage.multiSet([
         ['user', JSON.stringify(user)]
@@ -32,6 +33,16 @@ const authReducer = (state = initialState, action) => {
     default:
       return state;
   }
-};
+}
 
-export default authReducer;
+let initialStateToken = { facebook: null, twitte: null };
+export const tokens = (state = initialStateToken, action) => {
+  switch (action.type) {
+    case 'facebook_token':
+      console.log(action)
+      state = Object.assign({}, state, { facebook: action.payload });
+      return state;
+    default:
+      return state;
+  }
+}

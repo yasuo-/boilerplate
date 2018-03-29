@@ -12,4 +12,4 @@ firebase.initializeApp(config);
 
 export const database = firebase.database();
 export const auth = firebase.auth();
-export const provider = new firebase.auth.FacebookAuthProvider();
+export const provider = firebase.auth.FacebookAuthProvider;

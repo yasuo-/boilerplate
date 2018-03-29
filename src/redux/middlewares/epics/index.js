@@ -1,5 +1,5 @@
 import { combineEpics } from "redux-observable";
-import { fetchApiEpic } from "./fetchApiEpic";
+import { authEpics } from "./authEpics";
 
 /**
  * epics
@@ -7,4 +7,4 @@ import { fetchApiEpic } from "./fetchApiEpic";
  * We will use it when it can be used around asynchronously
  * @type {Epic<T, S>}
  */
-export const rootEpic = combineEpics(fetchApiEpic);
+export const rootEpic = combineEpics(authEpics);

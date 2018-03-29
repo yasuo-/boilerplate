@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import * as authReducer from "./authReducer"
-import * as homeReducer from "./homeReducer"
+import homeReducer from "./homeReducer"
+import countReducer from './countReducer.js';
 import * as types from "../actions/type";
 
 const init = (state = {}, action) => {
@@ -21,8 +22,10 @@ const init = (state = {}, action) => {
  */
 const rootReducer = combineReducers({
   init,
-  authReducer,
-  homeReducer
+  authReducer: authReducer.isLogin,
+  authTokens: authReducer.tokens,
+  homeReducer,
+  count: countReducer
 });
 
 export default rootReducer;

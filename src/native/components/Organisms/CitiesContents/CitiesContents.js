@@ -5,7 +5,7 @@ import { StyleSheet, ScrollView } from "react-native";
 
 import { CitiesCard } from "../../Molecules/CitiesCard";
 
-import Images from "../../../../assets/Images/index";
+import Images from "../../../../assets/images/index";
 import { Theme } from "../../Theme";
 import type { BaseProps } from "../../Types";
 

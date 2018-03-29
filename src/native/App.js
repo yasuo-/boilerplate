@@ -4,10 +4,12 @@ import React, { Component } from "react";
 import { StyleProvider } from "native-base";
 import { StackNavigator, TabNavigator, TabBarBottom } from "react-navigation";
 import { Font, AppLoading } from "expo";
+import { Provider } from 'react-redux';
+import store from '../redux/store/configureStore';
 
 import APIStore from "../api";
 import Images from "../assets/images/index";
-import Fonts from "../assets/fonts/index";
+// import Fonts from "../assets/fonts/index";
 import getTheme from "../../native-base-theme/components";
 import common from "../../native-base-theme/variables/commonColor";
 import RootStack from "./navigator";
@@ -29,18 +31,24 @@ export default class App extends Component<{}, AppState> {
   }
 
   async loadStaticResources(): Promise<void> {
-    const fontAssets = cacheFonts(Fonts);
-    await Promise.all([...fontAssets]);
+    // const fontAssets = cacheFonts(Fonts);
+    //await Font.loadAsync({
+    //  "SFProDisplay-Bold": require("../../fonts/SF-Pro-Display-Bold.otf"),
+    //  "SFProDisplay-Semibold": require("../../fonts/SF-Pro-Display-Semibold.otf"),
+    //  "SFProDisplay-Regular": require("../../fonts/SF-Pro-Display-Regular.otf"),
+    //  "SFProDisplay-Light": require("../../fonts/SF-Pro-Display-Light.otf"),
+    //});
+    // await Promise.all([...fontAssets]);
     await Images.downloadAsync();
     await APIStore.load();
-    // this.setState({ ready: true });
+    this.setState({ ready: true });
   }
 
   render() {
     return (
       <StyleProvider style={getTheme(common)}>
         {this.state.ready
-          ? <RootStack />
+          ? <Provider store={store}><RootStack /></Provider>
           : <AppLoading
             startAsync={this._loadAssetsAsync}
             onFinish={() => this.setState({ ready: true })}

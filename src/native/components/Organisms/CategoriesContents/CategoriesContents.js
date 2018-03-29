@@ -5,7 +5,7 @@ import { StyleSheet, ScrollView } from "react-native";
 
 import { CategoryCard } from "../../Molecules/CategoryCard";
 
-import Images from "../../../../assets/Images/index";
+import Images from "../../../../assets/images/index";
 import { Theme } from "../../Theme";
 import type { BaseProps } from "../../Types";
 
@@ -16,7 +16,7 @@ type CategoriesContentsProps = BaseProps & {
 
 export default class CategoriesContents extends Component<
   CategoriesContentsProps
-> {
+  > {
   constructor(props) {
     super(props);
   }
