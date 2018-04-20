@@ -38,11 +38,9 @@ class Explore extends Component<ScreenProps<>> {
   }
 
   render() {
-    console.log("--------------");
-    console.log(this.props)
     return (
       <HomeContainer>
-        <IOSTitleHeader title={"Explore"} />
+        <IOSTitleHeader title={"Search"} />
         <CategoriesContents onPress={this.Lists} />
         <CitiesContents onPress={this.Lists} />
         {_.map(APIStore.homesByCities(), (homes, city) => (

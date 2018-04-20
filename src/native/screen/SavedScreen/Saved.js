@@ -19,6 +19,7 @@ export default class Saved extends Component<ScreenProps<>> {
 
   // @autobind
   savedList() {
+    alert('SavedList')
     this.props.navigation.navigate("SavedList");
   }
 
@@ -30,13 +31,13 @@ export default class Saved extends Component<ScreenProps<>> {
         <IOSTitleHeader title={"Saved"} />
         <SectionContainer withGutter={true}>
           <SavedCard
-            label="Homes"
+            label="Salon"
             image={Images.homes}
             onPress={this.savedList}
             {...{ navigation }}
           />
           <SavedCard
-            label="Experiences"
+            label="Nail"
             image={Images.experiences}
             onPress={this.savedList}
             {...{ navigation }}

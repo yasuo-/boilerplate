@@ -7,12 +7,12 @@ import { Text } from "../../Atom/Text";
 import { Theme } from "../../Theme";
 import type { BaseProps } from "../../Types";
 
-type VerticalContentsProps = BaseProps & {
+type ListViewContentsProps = BaseProps & {
   contentsTitle: string,
   children: React.ChildrenArray<React.Element<*>>
 };
 
-export default class VerticalContents extends Component<VerticalContentsProps> {
+export default class ListViewContents extends Component<ListViewContentsProps> {
   constructor(props) {
     super(props);
   }
@@ -22,11 +22,8 @@ export default class VerticalContents extends Component<VerticalContentsProps> {
 
     return (
       <View key={`${key}`}>
-        <Text type="header2" gutterBottom={true} style={styles.text}>
-          {contentsTitle}
-        </Text>
         <View
-          style={styles.scrollView}
+          style={styles.flex}
           contentContainerStyle={styles.container}
         >
           {children}
@@ -40,11 +37,8 @@ export default class VerticalContents extends Component<VerticalContentsProps> {
  * custom style
  */
 const styles = StyleSheet.create({
-  text: {
-    paddingLeft: Theme.spacing.base
-  },
-  scrollView: {
-    paddingHorizontal: Theme.spacing.base,
+  flex: {
+    flex: 1,
     marginBottom: Theme.spacing.base
   },
   container: {

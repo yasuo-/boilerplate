@@ -14,11 +14,12 @@ import type { ScreenParams } from "../../components/Types";
 
 export default class Settings extends Component<
   ScreenParams<{ currency: string }>
-> {
+  > {
   constructor(props) {
     super(props);
 
     this.currencies = this.currencies.bind(this);
+    this.back = this.back.bind(this);
   }
 
   // @autobind
@@ -30,6 +31,10 @@ export default class Settings extends Component<
     navigation.navigate("Currencies", { currency });
   }
 
+  back() {
+    this.props.navigation.goBack();
+  }
+
   render() {
     const { navigation } = this.props;
     const currency = navigation.state.params
@@ -38,8 +43,8 @@ export default class Settings extends Component<
 
     return (
       <Container>
-        <NavigationBar title="Settings" {...{ navigation }} />
-        <View>
+        <NavigationBar title="Settings" onPress={this.back} {...{ navigation }} />
+        <View style={styles.container}>
           <List>
             <ListItem style={styles.listItem}>
               <Body>

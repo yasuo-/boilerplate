@@ -21,6 +21,7 @@ export default class Inbox extends Component<ScreenProps<>> {
         <IOSTitleHeader title={"Inbox"} />
         <SectionContainer withGutter={true}>
           <Text gutterBottom={true}>You have no messages</Text>
+          <Text>Planを作成してください</Text>
         </SectionContainer>
       </HomeContainer>
     );

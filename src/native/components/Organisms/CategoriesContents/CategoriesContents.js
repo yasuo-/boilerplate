@@ -29,9 +29,9 @@ export default class CategoriesContents extends Component<
         style={styles.scrollView}
         contentContainerStyle={styles.container}
       >
-        <CategoryCard label="Homes" image={Images.homes} onPress={onPress} />
+        <CategoryCard label="Salon" image={Images.homes} onPress={onPress} />
         <CategoryCard
-          label="Experiences"
+          label="Nail"
           image={Images.experiences}
           onPress={onPress}
         />

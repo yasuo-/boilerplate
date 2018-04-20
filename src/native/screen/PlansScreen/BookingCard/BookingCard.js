@@ -35,7 +35,7 @@ export default class BookingCard extends Component<ScreenProps<>> {
     const { id } = home;
     return (
       <TouchableWithoutFeedback
-        onPress={() => navigation.navigate("HomeOverview", { id })}
+        onPress={() => navigation.navigate("Booking", { id })}
       >
         <View style={styles.container}>
           <Text gutterBottom={true}>
@@ -57,55 +57,27 @@ export default class BookingCard extends Component<ScreenProps<>> {
   }
 }
 
-const { height } = Dimensions.get("window");
+const width = Dimensions.get("window").width - Theme.spacing.base * 3;
 const styles = StyleSheet.create({
-  root: {
-    flexGrow: 1
-  },
-  background: {
-    position: "absolute",
-    left: Theme.spacing.base,
-    top: Platform.OS === "ios" ? Constants.statusBarHeight : 0,
-    backgroundColor: Theme.palette.primary,
-    width: 2,
-    height
-  },
   container: {
-    ...StyleSheet.absoluteFillObject,
-    top: Platform.OS === "ios" ? Constants.statusBarHeight : 0
+    marginLeft: Theme.spacing.base
   },
-  contentContainer: {
-    paddingLeft: Theme.spacing.base,
-    paddingRight: Theme.spacing.base,
-    paddingTop: Theme.spacing.base * 2,
-    paddingBottom: Theme.spacing.base * 2 + 57,
-    flexDirection: "row"
+  card: {
+    width: width,
+    borderRadius: 2,
+    shadowColor: "rgba(0, 0, 0, 0.2)",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowRadius: 4,
+    shadowOpacity: 1
   },
-  border: {
-    backgroundColor: Theme.palette.primary,
-    width: 2
+  image: {
+    width,
+    height: width * 0.62
   },
-  city: {
-    marginTop: Theme.spacing.base,
-    marginBottom: Theme.spacing.base
-  },
-  header: {
-    position: "relative",
-    left: -Theme.spacing.base,
-    flexDirection: "row",
-    alignItems: "center"
-  },
-  outerCircle: {
-    backgroundColor: "white",
-    marginRight: Theme.spacing.base - 7 - 1
-  },
-  innerCircle: {
-    height: 14,
-    width: 14,
-    borderRadius: 7,
-    backgroundColor: Theme.palette.primary,
-    marginLeft: Theme.spacing.base - 7 - 1,
-    marginTop: Theme.spacing.tiny,
-    marginBottom: Theme.spacing.tiny
+  text: {
+    padding: Theme.spacing.tiny
   }
 });

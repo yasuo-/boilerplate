@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { TouchableWithoutFeedback, Text } from "react-native";
 import autobind from "autobind-decorator";
 
-import { ThreadItemComponent } from "../../../components/Organisms/ThreadItem";
+//import { ThreadItemComponent } from "../../../components/Organisms/ThreadItem";
 
 // import type { NavigationProps } from "../../../components/Types";
 import type { Thread } from "../../../model/model";
@@ -31,12 +31,12 @@ export default class ThreadItem extends Component<ThreadItemProps> {
 
     return (
       <TouchableWithoutFeedback onPress={this.openThread}>
-        <Text>test</Text>
+        <Text>Planを作成してください</Text>
       </TouchableWithoutFeedback>
     );
   }
 }
 
 /**
- * <ThreadItemComponent thread={thread} />
+ *  <ThreadItemComponent thread={thread} />
  */

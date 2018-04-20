@@ -73,8 +73,6 @@ class Welcome extends Component<ScreenProps<>> {
 
 
   render() {
-    console.log("--------------");
-    console.log(this.props)
     return (
       <Container withGutter={true} style={styles.container}>
         <Text type="header2" style={styles.header} gutterBottom={true}>
@@ -92,12 +90,6 @@ class Welcome extends Component<ScreenProps<>> {
           full={true}
           contrast={true}
           onPress={this.signUp}
-        />
-        <Button
-          label="SIGN UP WITH FACEBOOK"
-          full={true}
-          contrast={true}
-          onPress={this.onSignInWithFacebook}
         />
         <TouchableOpacity onPress={this.skip} underlayColor="white">
           <Text type="header4" style={styles.text} gutterBottom={true}>

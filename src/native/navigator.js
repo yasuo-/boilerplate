@@ -18,7 +18,9 @@ import DetailScreen from "./screen/ExploreScreen/Detail";
 import SavedScreen from "./screen/SavedScreen/Saved";
 import SavedListScreen from "./screen/SavedScreen/SavedList";
 import PlansScreen from "./screen/PlansScreen/Plans";
+import BookingScreen from "./screen/ExploreScreen/Detail";
 import InboxScreen from "./screen/InboxScreen/Inbox";
+import ThreadScreen from "./screen/InboxScreen/Thread"
 import ProfileScreen from "./screen/ProfileScreen/Profile";
 import SettingsScreen from "./screen/ProfileScreen/Settings";
 import LoginScreen from "./screen/SignUpScreen/Login";
@@ -33,9 +35,9 @@ type Tab = { label: string, icon: string };
 
 class CustomTabBar extends Component<NavigationProps<*>> {
   static tabs: Tab[] = [
-    { label: "Explore", icon: "ios-search-outline" },
+    { label: "Search", icon: "ios-search-outline" },
     { label: "Saved", icon: "ios-heart-outline" },
-    { label: "Plans", icon: "ios-plane-outline" },
+    { label: "Plans", icon: "ios-calendar-outline" },
     { label: "Inbox", icon: "ios-chatbubbles-outline" },
     { label: "Profile", icon: "ios-person-outline" }
   ];
@@ -114,7 +116,7 @@ const StackNavigatorOptions = {
  */
 const ExploreNavigator = StackNavigator(
   {
-    Explore: { screen: ExploreScreen },
+    Search: { screen: ExploreScreen },
     List: { screen: ListsScreen },
     Detail: { screen: DetailScreen }
   },
@@ -126,7 +128,8 @@ const ExploreNavigator = StackNavigator(
  */
 const InboxNavigator = StackNavigator(
   {
-    Inbox: { screen: InboxScreen }
+    Inbox: { screen: InboxScreen },
+    //Thread: { screen: ThreadScreen }
   },
   StackNavigatorOptions
 );
@@ -147,7 +150,8 @@ const SavedNavigator = StackNavigator(
  */
 const PlansNavigator = StackNavigator(
   {
-    Plans: { screen: PlansScreen }
+    Plans: { screen: PlansScreen },
+    Booking: { screen: BookingScreen }
   },
   StackNavigatorOptions
 );
@@ -168,7 +172,7 @@ const ProfileNavigator = StackNavigator(
  */
 const HomeNavigator = TabNavigator(
   {
-    Explore: { screen: ExploreNavigator },
+    Search: { screen: ExploreNavigator },
     Saved: { screen: SavedNavigator },
     Plans: { screen: PlansNavigator },
     Inbox: { screen: InboxNavigator },

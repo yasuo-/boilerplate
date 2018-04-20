@@ -12,22 +12,11 @@ type SavedCardProps = {
 };
 
 export default class SavedCard extends Component<SavedCardProps> {
-  constructor(props) {
-    super(props);
-
-    this.savedList = this.savedList.bind(this);
-  }
-
-  // @autobind
-  savedList() {
-    this.props.navigation.navigate("SavedList");
-  }
-
   render() {
     const { label, image, onPress } = this.props;
 
     return (
-      <TouchableWithoutFeedback onPress={onPress}>
+      <TouchableWithoutFeedback onPress={() => onPress()}>
         <SavedCardComponents label={label} image={image} />
       </TouchableWithoutFeedback>
     );

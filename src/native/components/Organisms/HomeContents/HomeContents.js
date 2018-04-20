@@ -23,7 +23,7 @@ export default class HomeContents extends Component<HomeContentsProps> {
     return (
       <View key={`${key}`}>
         <Text type="header2" gutterBottom={true} style={styles.text}>
-          {city}
+          {city}のおすすめ
         </Text>
         <ScrollView
           horizontal={true}

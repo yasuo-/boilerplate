@@ -1,6 +1,6 @@
 /* @flow */
 import React, { Component } from "react";
-import { View } from "react-native";
+import { ScrollView } from "react-native";
 
 import { Container } from "../components/Organisms/Container";
 import type { BaseProps } from "../components/Type";
@@ -10,12 +10,12 @@ type HomeContainerProps = BaseProps & {
   children: React.ChildrenArray<React.Element<*>>
 };
 
-export default class SectionScreen extends Component<HomeContainerProps> {
+export default class SectionScrollScreen extends Component<HomeContainerProps> {
   render() {
     const { withGutter, children, style } = this.props;
     return (
       <Container {...{ withGutter }}>
-        <View {...{ style }}>{children}</View>
+        <ScrollView {...{ style }}>{children}</ScrollView>
       </Container>
     );
   }

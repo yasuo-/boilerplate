@@ -20,7 +20,7 @@ import APIStore from "../../../api";
 import { Theme } from "../../components/Theme";
 import type { ScreenProps } from "../../components/Types";
 
-export default class Trips extends Component<ScreenProps<>> {
+export default class Plans extends Component<ScreenProps<>> {
   render() {
     const { navigation } = this.props;
     return (

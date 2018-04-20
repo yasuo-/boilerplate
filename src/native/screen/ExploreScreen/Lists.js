@@ -1,18 +1,19 @@
 /** @flow */
 
 import React, { Component } from "react";
-
-import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
+import { StyleSheet, View } from "react-native";
+import { Container, Header, Left, Body, Right, Button, Icon, Title, Text } from 'native-base';
 import autobind from "autobind-decorator";
 import * as _ from "lodash";
 
 import APIStore from "../../../api";
 
-import SectionContainer from "../SectionScreen";
+import SectionContainer from "../SectionScrollScreen";
 import { NavigationBar } from "../../components/Organisms/NavigationBar";
-import { VerticalContents } from "../../components/Organisms/VerticalContents";
-import { HomeCard } from "./HomeCard";
+import { ListViewContents } from "../../components/Organisms/ListViewContents";
+import { HomeCardLarge } from "./HomeCard";
 
+import { Theme } from "../../components/Theme";
 import type { ScreenProps } from "../../components/Types";
 
 export default class Lists extends Component<ScreenProps<>> {
@@ -34,28 +35,29 @@ export default class Lists extends Component<ScreenProps<>> {
   }
 
   render() {
+    const { navigation } = this.props;
     return (
       <Container>
-        <Header
-          backgroundColor={"white"}
-        >
-          <Left>
-          </Left>
-          <Body>
-            <Title>title</Title>
-          </Body>
-          <Right />
-        </Header >
+        <NavigationBar title="一覧" onPress={this.back} {...{ navigation }} />
         <SectionContainer withGutter={true}>
           {_.map(APIStore.homesByCities(), (homes, city) => (
-            <VerticalContents key={city} contentsTitle={city}>
+            <ListViewContents key={city} contentsTitle={city}>
               {homes.map(home => (
-                <HomeCard key={home.id} onPress={this.Details} {...{ home }} />
+                <HomeCardLarge key={home.id} onPress={this.Details} {...{ home }} />
               ))}
-            </VerticalContents>
+            </ListViewContents>
           ))}
         </SectionContainer>
       </Container>
     );
   }
 }
+
+/**
+ * custom styles
+ */
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: Theme.spacing.base
+  }
+});
